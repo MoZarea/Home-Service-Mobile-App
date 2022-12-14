@@ -7,6 +7,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -78,10 +79,14 @@ public class AllCategoriesFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding = FragmentAllCategoriesBinding.inflate(inflater, container, false);
+
         recyclerViewAllCat =binding.recyclerViewAllCat;
         categoryAdapterAll=new CategoryAdapterAll(new OnItemClickListeners() {
             @Override
             public void onRndomCategoryClick(Category item, View view) {
+                AllCategoriesFragmentDirections.ActionAllCategoriesFragmentToAllServicesFragment action =AllCategoriesFragmentDirections.actionAllCategoriesFragmentToAllServicesFragment(item.getPic());
+                Navigation.findNavController(view).navigate(action);
+
                 //todo////////////////////////////
             }
         });

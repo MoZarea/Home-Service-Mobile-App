@@ -2,6 +2,7 @@ package com.example.homeservise.Home;
 
 import android.app.DirectAction;
 import android.app.Notification;
+import android.content.Context;
 import android.graphics.Path;
 import android.os.Bundle;
 
@@ -26,6 +27,7 @@ import com.example.homeservise.R;
 import com.example.homeservise.adapters.CategoryAdapter;
 import com.example.homeservise.adapters.ServicesAdapter;
 import com.example.homeservise.databinding.FragmentHomeBinding;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.List;
 
@@ -42,6 +44,7 @@ public class HomeFragment extends Fragment {
     ServicesViewModel servicesViewModel;
     CategoryAdapter categoryAdapter;
     ServicesAdapter servicesAdapter;
+    BottomNavigationView navigationView;
 
 
 
@@ -83,13 +86,14 @@ public class HomeFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding =  FragmentHomeBinding.inflate(inflater, container, false);
-
 
         categoryAdapter=new CategoryAdapter(new OnItemClickListeners() {
             @Override
@@ -105,7 +109,14 @@ public class HomeFragment extends Fragment {
         recyclerViewCat.setAdapter(categoryAdapter);
         categoryViewModel= new ViewModelProvider(requireActivity()).get(CategoryViewModel.class);
 
-        servicesAdapter=new ServicesAdapter();
+        servicesAdapter=new ServicesAdapter(new OnServiceSelectedFromAll() {
+            @Override
+            public void onServiceSelected(Services services, View view) {
+                HomeFragmentDirections.ActionHomeFragment2ToDetailsFragment action =HomeFragmentDirections.actionHomeFragment2ToDetailsFragment(services.getSertitle(),services.getSerCat(),services.getSerDiscribtion(),services.getSerPrice());
+                Navigation.findNavController(view).navigate(action);
+
+            }
+        });
         recyclerViewSer=binding.Poprecycleview;
         recyclerViewSer.setLayoutManager(new LinearLayoutManager(getActivity(),LinearLayoutManager.HORIZONTAL,false));
         recyclerViewSer.setHasFixedSize(true);
@@ -143,6 +154,20 @@ public class HomeFragment extends Fragment {
                 Navigation.findNavController(v).navigate(R.id.action_homeFragment2_to_allCategoriesFragment2);
             }
         });
+        binding.showAllServices.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                HomeFragmentDirections.ActionHomeFragment2ToAllServicesFragment2 action =HomeFragmentDirections.actionHomeFragment2ToAllServicesFragment2(99);
+                Navigation.findNavController(v).navigate(action);
+
+            }
+        });
+
+
+
 
     }
+
+
+
 }

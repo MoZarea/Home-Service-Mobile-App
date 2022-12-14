@@ -7,20 +7,24 @@
     app:startDestination="@id/homeFragment2">
 
     <fragment
-        android:id="@+id/cartFragment2"
-        android:name="com.example.homeservise.Home.CartFragment"
-        android:label="Cart"
-        tools:layout="@layout/fragment_cart" />
-    <fragment
         android:id="@+id/offersFragment2"
         android:name="com.example.homeservise.Home.OffersFragment"
         android:label="Offers"
-        tools:layout="@layout/fragment_offers" />
+        tools:layout="@layout/fragment_offers" >
+
+        <action
+            android:id="@+id/action_offersFragment2_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/preferedFragment2"
         android:name="com.example.homeservise.Home.PreferedFragment"
         android:label="Prefered"
-        tools:layout="@layout/fragment_prefered" />
+        tools:layout="@layout/fragment_prefered" >
+        <action
+            android:id="@+id/action_preferedFragment2_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.example.homeservise.Home.ProfileFragment"
@@ -36,14 +40,15 @@
         android:name="com.example.homeservise.Home.HomeFragment"
         android:label="Home" >
         <action
-            android:id="@+id/action_homeFragment2_to_detailsBookingFragment2"
-            app:destination="@id/detailsBookingFragment" />
-        <action
             android:id="@+id/action_homeFragment2_to_allServicesFragment2"
             app:destination="@id/allServicesFragment" />
         <action
             android:id="@+id/action_homeFragment2_to_allCategoriesFragment2"
             app:destination="@id/allCategoriesFragment" />
+        <action
+            android:id="@+id/action_homeFragment2_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+
 
     </fragment>
     <fragment
@@ -54,6 +59,9 @@
         <action
             android:id="@+id/action_allCategoriesFragment_to_homeFragment22"
             app:destination="@id/homeFragment2" />
+        <action
+            android:id="@+id/action_allCategoriesFragment_to_allServicesFragment"
+            app:destination="@id/allServicesFragment" />
     </fragment>
     <fragment
         android:id="@+id/allServicesFragment"
@@ -66,15 +74,46 @@
         <argument
             android:name="CAT"
             app:argType="reference" />
+        <action
+            android:id="@+id/action_allServicesFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+
 
     </fragment>
     <fragment
-        android:id="@+id/detailsBookingFragment"
-        android:name="com.example.homeservise.Home.DetailsBookingFragment"
-        android:label="fragment_details_booking"
-        tools:layout="@layout/fragment_details_booking" >
+        android:id="@+id/detailsFragment"
+        android:name="com.example.homeservise.DetailsFragment"
+        android:label="fragment_details"
+        tools:layout="@layout/fragment_details" >
+        <argument
+            android:name="Title"
+            app:argType="string" />
+        <argument
+            android:name="cat_title"
+            app:argType="string" />
+        <argument
+            android:name="Describtion"
+            app:argType="string" />
+        <argument
+            android:name="price"
+            app:argType="string" />
         <action
-            android:id="@+id/action_detailsBookingFragment_to_homeFragment22"
-            app:destination="@id/homeFragment2" />
+            android:id="@+id/action_detailsFragment_to_pickDateTimeFragment"
+            app:destination="@id/pickDateTimeFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/pickDateTimeFragment"
+        android:name="com.example.homeservise.PickDateTimeFragment"
+        android:label="fragment_pick_date_time"
+        tools:layout="@layout/fragment_pick_date_time" >
+        <action
+            android:id="@+id/action_pickDateTimeFragment_to_pickAddressFragment"
+            app:destination="@id/pickAddressFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/pickAddressFragment"
+        android:name="com.example.homeservise.PickAddressFragment"
+        android:label="fragment_pick_address"
+        tools:layout="@layout/fragment_pick_address" />
+
 </navigation>

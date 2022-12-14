@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 
 import com.example.homeservise.Domain.Services;
+import com.example.homeservise.Home.OnServiceSelectedFromAll;
 import com.example.homeservise.R;
 
 import java.util.ArrayList;
@@ -18,8 +19,10 @@ import java.util.List;
 
 public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.Viewholderpop> {
     List<Services> services=new ArrayList<>();
+    OnServiceSelectedFromAll listener;
 
-    public ServicesAdapter() {
+    public ServicesAdapter(OnServiceSelectedFromAll listener) {
+        this.listener=listener;
 
     }
 
@@ -35,9 +38,7 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.Viewho
     @Override
     public void onBindViewHolder(@NonNull Viewholderpop holder, int position) {
         Services current_service =services.get(position);
-        holder.tvSerTitle.setText(current_service.getSertitle());
-        holder.tv_Serprice.setText(current_service.getSerPrice());
-        holder.Serimage.setImageResource(current_service.getSerPic());
+        holder.bind(current_service);
 
 
 
@@ -55,12 +56,25 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.Viewho
     public class Viewholderpop extends RecyclerView.ViewHolder{
         TextView  tvSerTitle,tv_Serprice;
         ImageView Serimage;
+        Services services;
         public Viewholderpop(@NonNull View itemView) {
             super(itemView);
             tvSerTitle = itemView.findViewById(R.id.serTitle);
             tv_Serprice = itemView.findViewById(R.id.SerPrice);
             Serimage = itemView.findViewById(R.id.SerPic);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    listener.onServiceSelected(services,itemView);
+                }
+            });
 
+        }
+        void bind(Services services){
+            this.services=services;
+            tvSerTitle.setText(services.getSertitle());
+            tv_Serprice.setText(services.getSerPrice());
+            Serimage.setImageResource(services.getSerPic());
         }
     }
     public void setData(List<Services> services) {

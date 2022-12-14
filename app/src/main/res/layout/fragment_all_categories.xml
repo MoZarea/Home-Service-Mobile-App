@@ -26,7 +26,8 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerViewAllCat"
                 android:layout_width="match_parent"
-
+                tools:listitem="@layout/category_item"
+                android:layout_marginStart="20dp"
 
                 android:layout_height="match_parent"
                 app:layout_constraintEnd_toEndOf="parent"

@@ -73,7 +73,7 @@ public abstract class RoomDatabases extends RoomDatabase {
                 //todo////////////////////////////////////////////////////////
                 ServicesDao servicesDao = instance.servicesDao();
                 servicesDao.deleteAllservices();
-                Services services=new Services(R.drawable.electrician,"اعمال الكهرباء ","40 جنية للمعاينة","كهرباء","TODO");
+                Services services=new Services(R.drawable.electrician,"اعمال الكهرباء ","40 جنية للمعاينة","كهرباء","جميع اعمال صيانة الكهرباء والتركيبات يقدمها افضل الفنيين المحترفين اصحاب الخبرة .\n * نقدم اعمال الصيانة للمنازل والشركات \n* اعمال التأسيس للشقق والفيلات والعمارات \nملاحظات: \n*يتم الاتفاق على السعر بعد اتمام المعاينة \n*يتم حجز العمال الاقرب من المنطقة الاقرب اليك\n*يمكن للعميل شراء الخامات او يقوم الفني بشرائها ومحاسبة العميل عليها \n*السعر غير شامل الخامات  ");
                 servicesDao.insert(services);
                 Services services1=new Services(R.drawable.plumber,"تأسيس سباكة 1 حمام+1 مطبخ ","2000 جنيه","سباكة","TODO");
                 servicesDao.insert(services1);
@@ -93,8 +93,6 @@ public abstract class RoomDatabases extends RoomDatabase {
                 servicesDao.insert(services8);
                 Services services9=new Services(R.drawable.broom,"تنظيف المنزل للمره الواحدة حتى 170 م","250 جنيه","نظافة","TODO");
                 servicesDao.insert(services9);
-
-
 
 
 //

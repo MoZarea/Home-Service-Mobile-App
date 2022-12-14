@@ -1,16 +1,21 @@
 package com.example.homeservise.Home;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.databinding.DataBindingUtil;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
+import androidx.navigation.NavDestination;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import android.os.Bundle;
+import android.view.View;
 
 import com.example.homeservise.R;
 import com.example.homeservise.databinding.ActivityMainBinding;
@@ -18,6 +23,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity {
+
     ActivityMainBinding binding;
     AppBarConfiguration appBarConfiguration;
     NavController navController;
@@ -30,16 +36,14 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        
+
         //inflate xml layout
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         setContentView(binding.getRoot());
 
 
-        categoryViewModel=new ViewModelProvider(this).get(CategoryViewModel.class);
+        categoryViewModel = new ViewModelProvider(this).get(CategoryViewModel.class);
 //        categoryViewModel.
-
-
 
 
         //bind views from layout
@@ -66,7 +70,23 @@ public class MainActivity extends AppCompatActivity {
         //TODO NAVIGATION BETWEEN SCREENS
         //TODO VIEW MODEL
 
+        navController.addOnDestinationChangedListener(new NavController.OnDestinationChangedListener() {
+            @Override
+            public void onDestinationChanged(@NonNull NavController navController, @NonNull NavDestination navDestination, @Nullable Bundle bundle) {
+                if(navDestination.getId()==R.id.detailsFragment||
+                        navDestination.getId()==R.id.pickDateTimeFragment||
+                        navDestination.getId()==R.id.pickAddressFragment
+                ){
+                    bottomNavigationView.setVisibility(View.GONE);
+                }
+                else{
+                    bottomNavigationView.setVisibility(View.VISIBLE);
+                }
+
+            }
+        });
 
     }
+
 
 }

@@ -103,6 +103,8 @@ public class AllServicesFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         int cat = args.getCAT();
+
+        //todo كمل باقي الفئات والدوال بتاعتها من هنا
         if (cat == R.drawable.broom) {
             servicesViewModel.getAllCleanWorker().observe(requireActivity(), new Observer<List<Services>>() {
                 @Override
@@ -139,6 +141,17 @@ public class AllServicesFragment extends Fragment {
                 }
             });
         }
+        if (cat == 99) {
+            servicesViewModel.getAllServices().observe(requireActivity(), new Observer<List<Services>>() {
+                @Override
+
+                public void onChanged(List<Services> services) {
+                    servicesAdapterAll.setData(services);
+                }
+            });
+        }
+
+
 
 
     }
