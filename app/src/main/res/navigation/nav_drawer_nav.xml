@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_drawer_nav"
+    android:label="Wallet"
+    app:startDestination="@id/homeFragment2">
+
+    <fragment
+        android:id="@+id/cartFragment2"
+        android:name="com.example.homeservise.Home.CartFragment"
+        android:label="Cart"
+        tools:layout="@layout/fragment_cart" />
+    <fragment
+        android:id="@+id/offersFragment2"
+        android:name="com.example.homeservise.Home.OffersFragment"
+        android:label="Offers"
+        tools:layout="@layout/fragment_offers" />
+    <fragment
+        android:id="@+id/preferedFragment2"
+        android:name="com.example.homeservise.Home.PreferedFragment"
+        android:label="Prefered"
+        tools:layout="@layout/fragment_prefered" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.homeservise.Home.ProfileFragment"
+        android:label="Profile"
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/walletFragment"
+        android:name="com.example.homeservise.Home.WalletFragment"
+        android:label="Wallet"
+        tools:layout="@layout/fragment_wallet" />
+    <fragment
+        android:id="@+id/homeFragment2"
+        android:name="com.example.homeservise.Home.HomeFragment"
+        android:label="Home" >
+        <action
+            android:id="@+id/action_homeFragment2_to_detailsBookingFragment2"
+            app:destination="@id/detailsBookingFragment" />
+        <action
+            android:id="@+id/action_homeFragment2_to_allServicesFragment2"
+            app:destination="@id/allServicesFragment" />
+        <action
+            android:id="@+id/action_homeFragment2_to_allCategoriesFragment2"
+            app:destination="@id/allCategoriesFragment" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/allCategoriesFragment"
+        android:name="com.example.homeservise.Home.AllCategoriesFragment"
+        android:label="fragment_all_categories"
+        tools:layout="@layout/fragment_all_categories" >
+        <action
+            android:id="@+id/action_allCategoriesFragment_to_homeFragment22"
+            app:destination="@id/homeFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/allServicesFragment"
+        android:name="com.example.homeservise.Home.AllServicesFragment"
+        android:label="fragment_all_services"
+        tools:layout="@layout/fragment_all_services" >
+        <action
+            android:id="@+id/action_allServicesFragment_to_homeFragment22"
+            app:destination="@id/homeFragment2" />
+        <argument
+            android:name="CAT"
+            app:argType="reference" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/detailsBookingFragment"
+        android:name="com.example.homeservise.Home.DetailsBookingFragment"
+        android:label="fragment_details_booking"
+        tools:layout="@layout/fragment_details_booking" >
+        <action
+            android:id="@+id/action_detailsBookingFragment_to_homeFragment22"
+            app:destination="@id/homeFragment2" />
+    </fragment>
+</navigation>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+
+    <color name="Primarycolor">#f1c232</color>
+    <color name="primaryblue">#536DFB</color>
+    <color name="thirdcolor">#3262f1</color>
+    <color name="green">#00C1D4</color>
+    <color name="red">#FF0000</color>
+    <color name="gold">#FFDE2E</color>
+    <color name="gray">#BDBDBD</color>
+    <color name="gray2">#F5F5F5</color>
+    <color name="gray2d">#F5F5F5</color>
+    <color name="gray3">#f4f4f4</color>
+
+    <color name="secondarycolor">#fae9b3</color>
+
+    <color name="primaryColorm">#232f34</color>
+    <color name="primaryLightColorm">#4b585e</color>
+    <color name="primaryback">#e0e0e0</color>
+    <color name="primaryDarkColorm">#00050d</color>
+    <color name="secondaryColorm">#f9aa33</color>
+    <color name="secondaryLightColorm">#ffdc65</color>
+    <color name="secondaryDarkColorm">#c17b00</color>
+    <color name="primaryTextColorm">#ffffff</color>
+    <color name="secondaryTextColorm">#000000</color>
+
+    <color name="primaryColor22">#0277bd</color>
+    <color name="primaryLightColor22">#58a5f0</color>
+    <color name="primaryDarkColor22">#004c8c</color>
+    <color name="secondaryColor22">#e65100</color>
+    <color name="secondaryLightColor22">#ff833a</color>
+    <color name="secondaryDarkColor22">#ac1900</color>
+    <color name="primaryTextColor22">#ffffff</color>
+    <color name="secondaryTextColor22">#000000</color>
+</resources>

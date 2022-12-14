@@ -1,0 +1,46 @@
+<resources>
+    <string name="app_name">Home Servise</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="Login">Log in</string>
+    <string name="Email">Email</string>
+    <string name="Password">Password</string>
+    <string name="ForgetyourPassword">Forget your Password?</string>
+    <string name="OR">OR</string>
+    <string name="Donthaveanyaccount">Dont have any account?</string>
+    <string name="SignUp">Sign Up</string>
+    <string name="Alreadyhaveanaccount"> Have already an account?</string>
+    <string name="Name">The Name</string>
+    <string name="ConfirmPassword">Confirm Password</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hi_ahmed">Hi, Ahmed</string>
+    <string name="Home">Home</string>
+    <string name="Setting">Setting</string>
+    <string name="Man">Profile</string>
+    <string name="Menu">Menu</string>
+    <string name="top_app_bar">top</string>
+    <string name="profile">Profile</string>
+    <string name="cart">Cart</string>
+    <string name="signout">Sign out</string>
+    <string name="favorite">Favorite</string>
+    <string name="setting_nav">Setting</string>
+    <string name="other_option">other_option</string>
+    <string name="header_title">TITLE1</string>
+    <string name="header_text">Title2</string>
+    <string name="title_activity_nav_droawer">NavDroawerActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="eader_text">Hello</string>
+
+
+</resources>
