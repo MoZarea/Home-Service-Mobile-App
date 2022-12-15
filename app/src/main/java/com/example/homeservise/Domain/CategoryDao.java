@@ -11,6 +11,7 @@ import java.util.List;
 
 @Dao
 public interface CategoryDao {
+
     String clean="نظافة";
 
     @Insert

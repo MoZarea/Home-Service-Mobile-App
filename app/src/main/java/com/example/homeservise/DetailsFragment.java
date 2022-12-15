@@ -38,7 +38,12 @@ public class DetailsFragment extends Fragment {
         binding.book.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Navigation.findNavController(v).navigate(R.id.action_detailsFragment_to_pickDateTimeFragment);
+                if(args.getWithFeature()){
+                    Navigation.findNavController(v).navigate(R.id.action_detailsFragment_to_featureFragment);
+                }
+                else{
+                    Navigation.findNavController(v).navigate(R.id.action_detailsFragment_to_pickDateTimeFragment);
+                }
             }
         });
 

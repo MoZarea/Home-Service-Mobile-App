@@ -7,6 +7,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -25,11 +26,7 @@ import com.example.homeservise.databinding.FragmentHomeBinding;
 
 import java.util.List;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link AllServicesFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+
 public class AllServicesFragment extends Fragment {
     RecyclerView recyclerViewAllSer;
     CategoryViewModel categoryViewModel;
@@ -37,57 +34,38 @@ public class AllServicesFragment extends Fragment {
     ServicesAdapterAll servicesAdapterAll;
     AllServicesFragmentArgs args;
     FragmentAllServicesBinding binding;
-
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+private String mParam2;
 
     public AllServicesFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment AllServicesFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static AllServicesFragment newInstance(String param1, String param2) {
-        AllServicesFragment fragment = new AllServicesFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-
-        }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding = FragmentAllServicesBinding.inflate(inflater, container, false);
+
+        //Recieve argument
         args = AllServicesFragmentArgs.fromBundle(getArguments());
+
+        //////////////////////////////////////////////////////////
+        /////// All Services Adapter with Recycler View /////////
+        ////////////////////////////////////////////////////////
         recyclerViewAllSer = binding.recyclerViewAllServices;
         servicesAdapterAll = new ServicesAdapterAll(new OnServiceSelectedFromAll() {
             @Override
             public void onServiceSelected(Services services, View view) {
-                //todo/////////////////////////////////////////////////////
+                /*
+                 * Navigation to Details Fragment and show data
+                 * based on servise selected and pass data required to destination
+                 */
+                //TODO with feature is disable ... you should implement function for that
+                AllServicesFragmentDirections.ActionAllServicesFragmentToDetailsFragment action =AllServicesFragmentDirections.actionAllServicesFragmentToDetailsFragment(services.getSertitle(),services.getSerCat(),services.getSerDiscribtion(),services.getSerPrice(),false);
+                Navigation.findNavController(view).navigate(action);
             }
         });
         recyclerViewAllSer.setLayoutManager(new LinearLayoutManager(requireActivity(), LinearLayoutManager.VERTICAL, false));
@@ -150,9 +128,6 @@ public class AllServicesFragment extends Fragment {
                 }
             });
         }
-
-
-
 
     }
 }

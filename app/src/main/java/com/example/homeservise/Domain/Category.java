@@ -16,7 +16,6 @@ public class Category {
         this.titel = titel;
         this.pic = pic;
     }
-
     public String getTitel() {
         return titel;
     }
@@ -32,7 +31,5 @@ public class Category {
     public int getId() {
         return id;
     }
-
-
 
 }

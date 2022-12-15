@@ -100,6 +100,12 @@
         <action
             android:id="@+id/action_detailsFragment_to_pickDateTimeFragment"
             app:destination="@id/pickDateTimeFragment" />
+        <action
+            android:id="@+id/action_detailsFragment_to_featureFragment"
+            app:destination="@id/featureFragment" />
+        <argument
+            android:name="withFeature"
+            app:argType="boolean" />
     </fragment>
     <fragment
         android:id="@+id/pickDateTimeFragment"
@@ -115,5 +121,14 @@
         android:name="com.example.homeservise.PickAddressFragment"
         android:label="fragment_pick_address"
         tools:layout="@layout/fragment_pick_address" />
+    <fragment
+        android:id="@+id/featureFragment"
+        android:name="com.example.homeservise.FeatureFragment"
+        android:label="fragment_feature"
+        tools:layout="@layout/fragment_feature" >
+        <action
+            android:id="@+id/action_featureFragment_to_pickDateTimeFragment"
+            app:destination="@id/pickDateTimeFragment" />
+    </fragment>
 
 </navigation>

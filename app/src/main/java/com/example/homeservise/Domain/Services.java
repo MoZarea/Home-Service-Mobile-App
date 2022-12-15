@@ -11,7 +11,7 @@ public class Services {
     private String sertitle;
     private String serPrice;
 
-
+//    private int catId;
     private String serCat;
     private String serDiscribtion;
 
