@@ -96,7 +96,7 @@
             app:argType="string" />
         <argument
             android:name="price"
-            app:argType="string" />
+            app:argType="integer" />
         <action
             android:id="@+id/action_detailsFragment_to_pickDateTimeFragment"
             app:destination="@id/pickDateTimeFragment" />
@@ -105,7 +105,10 @@
             app:destination="@id/featureFragment" />
         <argument
             android:name="withFeature"
-            app:argType="boolean" />
+            app:argType="integer" />
+        <argument
+            android:name="serID"
+            app:argType="integer" />
     </fragment>
     <fragment
         android:id="@+id/pickDateTimeFragment"

@@ -64,7 +64,7 @@ public class AllServicesFragment extends Fragment {
                  * based on service selected and pass data required to destination
                  */
                 //TODO with feature is disable ... you should implement function for that
-                AllServicesFragmentDirections.ActionAllServicesFragmentToDetailsFragment action = AllServicesFragmentDirections.actionAllServicesFragmentToDetailsFragment(services.getSertitle(), services.getSerCat(), services.getSerDiscribtion(), services.getSerPrice(), false);
+                AllServicesFragmentDirections.ActionAllServicesFragmentToDetailsFragment action = AllServicesFragmentDirections.actionAllServicesFragmentToDetailsFragment(services.getSertitle(), services.getSerCat(), services.getSerDiscribtion(), services.getSer_Price(), services.getWith_extra_data(),services.getId());
                 Navigation.findNavController(view).navigate(action);
             }
         }, new FavorListener() {

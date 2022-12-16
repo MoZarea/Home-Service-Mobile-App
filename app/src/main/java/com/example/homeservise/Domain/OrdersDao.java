@@ -31,7 +31,7 @@ public interface OrdersDao {
     List<Oders> getOdersbyID(int id);
 
     @Query("select * from Oders  where serviceID=:serviceID ")
-    List<UserData> getUserByEmail(int  serviceID);
+    List<Oders> getUserByEmail(int  serviceID);
 
 
 

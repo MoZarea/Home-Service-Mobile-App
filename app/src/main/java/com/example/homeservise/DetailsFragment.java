@@ -3,17 +3,21 @@ package com.example.homeservise;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.homeservise.Domain.Oders;
+import com.example.homeservise.Home.ServicesViewModel;
 import com.example.homeservise.databinding.FragmentDetailsBinding;
 
 public class DetailsFragment extends Fragment {
     FragmentDetailsBinding binding;
     DetailsFragmentArgs args;
+    ServicesViewModel servicesViewModel;
 
     public DetailsFragment() {
     }
@@ -35,12 +39,17 @@ public class DetailsFragment extends Fragment {
         binding.title.setText(args.getTitle());
         binding.categoty.setText(args.getCatTitle());
         binding.details.setText(args.getDescribtion());
-        binding.price.setText(args.getPrice());
+        binding.price.setText(String.valueOf(args.getPrice()));
+        servicesViewModel=new ViewModelProvider(requireActivity()).get(ServicesViewModel.class);
+        Oders oders = new Oders(args.getSerID(),args.getPrice(),args.getTitle(),args.getCatTitle());
+        servicesViewModel.insert(oders);
+
+        servicesViewModel.insert(oders);
 
         binding.book.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(args.getWithFeature()){
+                if(args.getWithFeature()==1){
                     Navigation.findNavController(v).navigate(R.id.action_detailsFragment_to_featureFragment);
                 }
                 else{

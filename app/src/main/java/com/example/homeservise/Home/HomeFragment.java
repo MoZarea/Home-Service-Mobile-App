@@ -38,6 +38,7 @@ public class HomeFragment extends Fragment {
 
 
 
+
     public HomeFragment() {
         // Required empty public constructor
     }
@@ -82,7 +83,7 @@ public class HomeFragment extends Fragment {
                 /*
                  * Navigation to Details Fragment and show data
                  * based on servise selected and pass data required to destination
-                 */                HomeFragmentDirections.ActionHomeFragment2ToDetailsFragment action =HomeFragmentDirections.actionHomeFragment2ToDetailsFragment(services.getSertitle(),services.getSerCat(),services.getSerDiscribtion(),services.getSerPrice(),false);
+                 */                HomeFragmentDirections.ActionHomeFragment2ToDetailsFragment action =HomeFragmentDirections.actionHomeFragment2ToDetailsFragment(services.getSertitle(),services.getSerCat(),services.getSerDiscribtion(),services.getSer_Price(),services.getWith_extra_data(),services.getId());
                 Navigation.findNavController(view).navigate(action);
             }
         });

@@ -15,14 +15,11 @@ public class Oders {
     String time;
     String address;
 
-    public Oders(int serviceID, int totalCost, String ser_title, String cat_title, String date, String time, String address) {
+    public Oders(int serviceID, int totalCost, String ser_title, String cat_title) {
         this.serviceID = serviceID;
         this.totalCost = totalCost;
         this.ser_title = ser_title;
         this.cat_title = cat_title;
-        this.date = date;
-        this.time = time;
-        this.address = address;
     }
 
     public int getOrderID() {

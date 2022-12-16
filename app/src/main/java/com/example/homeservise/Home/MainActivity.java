@@ -76,7 +76,8 @@ public class MainActivity extends AppCompatActivity {
                 if(navDestination.getId()==R.id.detailsFragment||
                         navDestination.getId()==R.id.pickDateTimeFragment||
                         navDestination.getId()==R.id.pickAddressFragment||
-                        navDestination.getId()==R.id.profileFragment
+                        navDestination.getId()==R.id.profileFragment||
+                        navDestination.getId()==R.id.featureFragment
                 ){
                     bottomNavigationView.setVisibility(View.GONE);
                 }
