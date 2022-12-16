@@ -29,7 +29,9 @@ public class DetailsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding=FragmentDetailsBinding.inflate(inflater,container,false);
+        //recieve Argument
         args=DetailsFragmentArgs.fromBundle(getArguments());
+        //bind data recieved to layout
         binding.title.setText(args.getTitle());
         binding.categoty.setText(args.getCatTitle());
         binding.details.setText(args.getDescribtion());

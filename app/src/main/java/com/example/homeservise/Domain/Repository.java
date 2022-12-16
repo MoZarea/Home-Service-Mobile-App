@@ -16,17 +16,6 @@ public class Repository {
     //TODO اعمل باقي الجداول هنا
     private ServicesDao servicesDao;
     private CategoryDao categoryDao;
-    //TODO  اعمل باقي القيم الراجعه
-
-    LiveData<List<Category>> allCategory;
-    LiveData<List<Services>> allServices;
-    LiveData<List<Services>> AllCleanWorker;
-    LiveData<List<Services>> AllMechanicalWorker;
-    LiveData<List<Services>> AllPlumberWorker;
-    LiveData<List<Services>> AllElictricalWorker;
-    LiveData<List<Services>> AllCarpenterWorker;
-    LiveData<List<Services>> AllWachingWorker;
-    LiveData<List<Services>> AllGardenWorker;
 
     public Repository(Application application) {
         //عملت instance
@@ -35,22 +24,11 @@ public class Repository {
         //TODO اعمل باقي الجداول هنا
         categoryDao = database.categoryDao();
         servicesDao = database.servicesDao();
-        //ثم  نجيب اي قيمه بترجع حاجه هنا الاول وبعدين نعمل الداله بتاعتها تحت
-        //TODO  اعمل باقي القيم الراجعه
-        allCategory = categoryDao.getAllCategory();
-        allServices = servicesDao.getAllservices();
-        AllCleanWorker = servicesDao.getAllCleanWorker();
-
-        AllMechanicalWorker = servicesDao.getAllMechanicalWorker();
-        AllPlumberWorker = servicesDao.getAllPlumberWorker();
-        AllElictricalWorker = servicesDao.getAllElictricalWorker();
-        AllCarpenterWorker = servicesDao.getAllCarpenterWorker();
-        AllWachingWorker = servicesDao.getAllWachingWorker();
-        AllGardenWorker = servicesDao.getAllGardenWorker();
 
     }
 
     ///////////////////////////////////////////////////////////////////////
+    ///////////////////////category//////////////////////////
     //////////////////////////////////////////////////////////////////
     public void insert(Category category) {
         RoomDatabases.databaseWriteExecutor.execute(() -> {
@@ -84,10 +62,11 @@ public class Repository {
     }
 
     public LiveData<List<Category>> getAllCategory() {
-        return allCategory;
+        return categoryDao.getAllCategory();
     }
-
-    ///////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////
+    ///////////////services//////////////////////
+    ////////////////////////////////////////////////////
     public void insert(Services services) {
         RoomDatabases.databaseWriteExecutor.execute(() -> {
             servicesDao.insert(services);
@@ -118,35 +97,23 @@ public class Repository {
     }
 
     public LiveData<List<Services>> getAllservices() {
-        return allServices;
+        return servicesDao.getAllservices();
     }
 
-    public LiveData<List<Services>> getAllCleanWorker() {
-        return AllCleanWorker;
+    public void getAllServicesByCat(String name,ServicesValueListener listener) {
+        RoomDatabases.databaseWriteExecutor.execute(new Runnable() {
+            @Override
+            public void run() {
+                List<Services> services =servicesDao.getAllServicesByCat(name);
+                listener.onValueSubmit(services);
+            }
+        });
+    }
+    public LiveData<List<Services>> getAllOffer() {return  servicesDao.getAllOffer();}
+
+    public LiveData<List<Services>> getAllFavorute() {
+        return servicesDao.getAllFavorute();
     }
 
-    public LiveData<List<Services>> getAllMechanicalWorker() {
-        return AllMechanicalWorker;
-    }
-
-    public LiveData<List<Services>> getAllPlumberWorker() {
-        return AllPlumberWorker;
-    }
-
-    public LiveData<List<Services>> getAllElictricalWorker() {
-        return AllElictricalWorker;
-    }
-
-    public LiveData<List<Services>> getAllCarpenterWorker() {
-        return AllCarpenterWorker;
-    }
-
-    public LiveData<List<Services>> getAllWachingWorker() {
-        return AllWachingWorker;
-    }
-
-    public LiveData<List<Services>> getAllGardenWorker() {
-        return AllGardenWorker;
-    }
 
 }

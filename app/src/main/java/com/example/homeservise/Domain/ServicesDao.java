@@ -8,6 +8,7 @@ import androidx.room.Query;
 import androidx.room.Update;
 
 import java.util.List;
+
 @Dao
 public interface ServicesDao {
 
@@ -26,21 +27,14 @@ public interface ServicesDao {
     @Query("select * from services_table ")
     LiveData<List<Services>> getAllservices();
 
-    @Query("select * from services_table where serCat='نظافة' ")
-    LiveData<List<Services>> getAllCleanWorker();
+    @Query("select * from services_table where serCat=:CatName ")
+    List<Services> getAllServicesByCat(String CatName);
 
-        @Query("select * from services_table where serCat='ميكانيكا' ")
-    LiveData<List<Services>> getAllMechanicalWorker();
-        @Query("select * from services_table where serCat='سباكة' ")
-    LiveData<List<Services>> getAllPlumberWorker();
-        @Query("select * from services_table where serCat='كهرباء' ")
-    LiveData<List<Services>> getAllElictricalWorker();
-        @Query("select * from services_table where serCat='نجارة' ")
-    LiveData<List<Services>> getAllCarpenterWorker();
-        @Query("select * from services_table where serCat='غسيل' ")
-    LiveData<List<Services>> getAllWachingWorker();
-        @Query("select * from services_table where serCat='حدائق' ")
-    LiveData<List<Services>> getAllGardenWorker();
+    @Query("select * from services_table  where is_Offer=1 ")
+    LiveData<List<Services>> getAllOffer();
+
+    @Query("select * from services_table where is_favorite=1 ")
+    LiveData<List<Services>> getAllFavorute();
 
 
 }

@@ -16,8 +16,6 @@ public class PickDateTimeFragment extends Fragment {
 
     public PickDateTimeFragment() {
     }
-
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +29,7 @@ binding=FragmentPickDateTimeBinding.inflate(inflater,container,false);
 binding.toAddress.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
+        //navigation to pickAddressFragment
         Navigation.findNavController(v).navigate(R.id.action_pickDateTimeFragment_to_pickAddressFragment);
     }
 });

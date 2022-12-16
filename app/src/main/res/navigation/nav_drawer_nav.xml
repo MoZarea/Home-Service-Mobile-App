@@ -73,7 +73,7 @@
             app:destination="@id/homeFragment2" />
         <argument
             android:name="CAT"
-            app:argType="reference" />
+            app:argType="string" />
         <action
             android:id="@+id/action_allServicesFragment_to_detailsFragment"
             app:destination="@id/detailsFragment" />

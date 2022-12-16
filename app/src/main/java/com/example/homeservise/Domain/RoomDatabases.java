@@ -73,26 +73,29 @@ public abstract class RoomDatabases extends RoomDatabase {
                 //todo////////////////////////////////////////////////////////
                 ServicesDao servicesDao = instance.servicesDao();
                 servicesDao.deleteAllservices();
-                Services services=new Services(R.drawable.electrician,"اعمال الكهرباء ","40 جنية للمعاينة","كهرباء","جميع اعمال صيانة الكهرباء والتركيبات يقدمها افضل الفنيين المحترفين اصحاب الخبرة .\n * نقدم اعمال الصيانة للمنازل والشركات \n* اعمال التأسيس للشقق والفيلات والعمارات \nملاحظات: \n*يتم الاتفاق على السعر بعد اتمام المعاينة \n*يتم حجز العمال الاقرب من المنطقة الاقرب اليك\n*يمكن للعميل شراء الخامات او يقوم الفني بشرائها ومحاسبة العميل عليها \n*السعر غير شامل الخامات  ");
+                Services services=new Services(R.drawable.electrician,"اعمال الكهرباء ","40 جنية للمعاينة","كهرباء",0,1,"جميع اعمال صيانة الكهرباء والتركيبات يقدمها افضل الفنيين المحترفين اصحاب الخبرة .\n * نقدم اعمال الصيانة للمنازل والشركات \n* اعمال التأسيس للشقق والفيلات والعمارات \nملاحظات: \n*يتم الاتفاق على السعر بعد اتمام المعاينة \n*يتم حجز العمال الاقرب من المنطقة الاقرب اليك\n*يمكن للعميل شراء الخامات او يقوم الفني بشرائها ومحاسبة العميل عليها \n*السعر غير شامل الخامات  ");
                 servicesDao.insert(services);
-                Services services1=new Services(R.drawable.plumber,"تأسيس سباكة 1 حمام+1 مطبخ ","2000 جنيه","سباكة","TODO");
+                Services services1=new Services(R.drawable.plumber,"تأسيس سباكة 1 حمام+1 مطبخ ","2000 جنيه","سباكة",0,0,"TODO");
                 servicesDao.insert(services1);
-                Services services2=new Services(R.drawable.carpenter,"نجارة واعمال خشبية ","40 جنية للمعاينة","نجارة","TODO");
+                Services services2=new Services(R.drawable.carpenter,"نجارة واعمال خشبية ","40 جنية للمعاينة","نجارة",0,0,"TODO");
                 servicesDao.insert(services2);
-                Services services3=new Services(R.drawable.broom,"تنظيف الواجهات من الخارج","0 على حسب المعاينه ","نظافة","TODO");
+                Services services3=new Services(R.drawable.broom,"تنظيف الواجهات من الخارج","0 على حسب المعاينه ","نظافة",1,0,"TODO");
                 servicesDao.insert(services3);
-                Services services4=new Services(R.drawable.broom,"تنظيف ما بعد التشطيب","14 جنية للمتر","نظافة","TODO");
+                Services services4=new Services(R.drawable.broom,"تنظيف ما بعد التشطيب","14 جنية للمتر","نظافة",0,0,"TODO");
                 servicesDao.insert(services4);
-                Services services5=new Services(R.drawable.broom,"تنظيف خزانات ","40 جنية للمعاينة","نظافة","TODO");
+                Services services5=new Services(R.drawable.broom,"تنظيف خزانات ","40 جنية للمعاينة","نظافة",1,0,"TODO");
                 servicesDao.insert(services5);
-                Services services6=new Services(R.drawable.broom,"تعقيم وتطهير ضد فيروس كورونا 19","625 جنية","نظافة","TODO");
+                Services services6=new Services(R.drawable.broom,"تعقيم وتطهير ضد فيروس كورونا 19","625 جنية","نظافة",0,0,"TODO");
                 servicesDao.insert(services6);
-                Services services7=new Services(R.drawable.broom,"نظافة منزلية مميزة Premium","520 جنية","نظافة","TODO");
+                Services services7=new Services(R.drawable.broom,"نظافة منزلية مميزة Premium","520 جنية","نظافة",1,0,"TODO");
                 servicesDao.insert(services7);
-                Services services8=new Services(R.drawable.broom,"اعمال الحدائق واللاندسكيب","40 جنية للمعاينة","اعمال حدائق","TODO");
+                Services services8=new Services(R.drawable.broom,"اعمال الحدائق واللاندسكيب","40 جنية للمعاينة","اعمال حدائق",0,0,"TODO");
                 servicesDao.insert(services8);
-                Services services9=new Services(R.drawable.broom,"تنظيف المنزل للمره الواحدة حتى 170 م","250 جنيه","نظافة","TODO");
+                Services services9=new Services(R.drawable.broom,"تنظيف المنزل للمره الواحدة حتى 170 م","250 جنيه","نظافة",0,0,"TODO");
                 servicesDao.insert(services9);
+                
+
+
 
 
 //

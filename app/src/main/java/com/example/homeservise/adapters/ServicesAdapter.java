@@ -57,15 +57,19 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.Viewho
         TextView  tvSerTitle,tv_Serprice;
         ImageView Serimage;
         Services services;
+
         public Viewholderpop(@NonNull View itemView) {
             super(itemView);
             tvSerTitle = itemView.findViewById(R.id.serTitle);
             tv_Serprice = itemView.findViewById(R.id.SerPrice);
             Serimage = itemView.findViewById(R.id.SerPic);
+
+
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     listener.onServiceSelected(services,itemView);
+
                 }
             });
 
@@ -75,6 +79,7 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.Viewho
             tvSerTitle.setText(services.getSertitle());
             tv_Serprice.setText(services.getSerPrice());
             Serimage.setImageResource(services.getSerPic());
+//
         }
     }
     public void setData(List<Services> services) {

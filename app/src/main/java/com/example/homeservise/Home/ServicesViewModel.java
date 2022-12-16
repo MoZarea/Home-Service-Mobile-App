@@ -7,42 +7,25 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
 import com.example.homeservise.Domain.Category;
+import com.example.homeservise.Domain.OfferValueListener;
 import com.example.homeservise.Domain.Repository;
+import com.example.homeservise.Domain.RoomDatabases;
 import com.example.homeservise.Domain.Services;
+import com.example.homeservise.Domain.ServicesValueListener;
 
 import java.util.List;
 
 public class ServicesViewModel extends AndroidViewModel {
     private Repository reposotiry;
-    //TODO  اعمل باقي القيم الراجعه
-    private LiveData<List<Services>> allServices;
-    private LiveData<List<Services>> AllCleanWorker;
-    private LiveData<List<Services>> AllMechanicalWorker;
-    private LiveData<List<Services>> AllPlumberWorker;
-    private  LiveData<List<Services>> AllElictricalWorker;
-    private LiveData<List<Services>> AllCarpenterWorker;
-    private LiveData<List<Services>> AllWachingWorker;
-    private LiveData<List<Services>> AllGardenWorker;
 
     public ServicesViewModel(@NonNull Application application) {
         super(application);
         reposotiry=new Repository(application);
-        //TODO اعمل باقي القيم الراجعه
-        allServices=reposotiry.getAllservices();
-        AllCleanWorker=reposotiry.getAllCleanWorker();
 
-        AllMechanicalWorker = reposotiry.getAllMechanicalWorker();
-        AllPlumberWorker = reposotiry.getAllPlumberWorker();
-        AllElictricalWorker = reposotiry.getAllElictricalWorker();
-        AllCarpenterWorker = reposotiry.getAllCarpenterWorker();
-        AllWachingWorker = reposotiry.getAllWachingWorker();
-        AllGardenWorker = reposotiry.getAllGardenWorker();
+
 
 
     }
-
-
-
     void insert(Services services) {
         reposotiry.insert(services);
     }
@@ -59,34 +42,19 @@ public class ServicesViewModel extends AndroidViewModel {
     }
 
     LiveData<List<Services>> getAllServices() {
-        return allServices;
-    }
-    LiveData<List<Services>> getAllCleanWorker() {
-        return AllCleanWorker;
+        return reposotiry.getAllservices();
     }
 
-     LiveData<List<Services>> getAllMechanicalWorker() {
-        return AllMechanicalWorker;
+    public void getAllServicesByCat(String name, ServicesValueListener listener) {
+                reposotiry.getAllServicesByCat(name,listener);
+
     }
 
-     LiveData<List<Services>> getAllPlumberWorker() {
-        return AllPlumberWorker;
+    public LiveData<List<Services>> getAllOffers() {
+       return reposotiry.getAllOffer();
     }
-
-     LiveData<List<Services>> getAllElictricalWorker() {
-        return AllElictricalWorker;
-    }
-
-     LiveData<List<Services>> getAllCarpenterWorker() {
-        return AllCarpenterWorker;
-    }
-
-     LiveData<List<Services>> getAllWachingWorker() {
-        return AllWachingWorker;
-    }
-
-     LiveData<List<Services>> getAllGardenWorker() {
-        return AllGardenWorker;
+    public LiveData<List<Services>> getAllFavorite() {
+        return reposotiry.getAllFavorute();
     }
 
 }

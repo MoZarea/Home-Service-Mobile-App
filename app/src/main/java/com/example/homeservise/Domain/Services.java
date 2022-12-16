@@ -10,20 +10,36 @@ public class Services {
     private int serPic;
     private String sertitle;
     private String serPrice;
-
-//    private int catId;
+    private int is_Offer;
     private String serCat;
     private String serDiscribtion;
+    private int is_favorite;
 
-    public Services(int serPic, String sertitle, String serPrice, String serCat, String serDiscribtion) {
+    public Services(int serPic, String sertitle, String serPrice, String serCat,int is_Offer,int is_favorite, String serDiscribtion) {
         this.serPic = serPic;
         this.sertitle = sertitle;
         this.serPrice = serPrice;
         this.serCat = serCat;
         this.serDiscribtion = serDiscribtion;
+        this.is_Offer=is_Offer;
+        this.is_favorite=is_favorite;
     }
 
+    public int getIs_favorite() {
+        return is_favorite;
+    }
 
+    public void setIs_favorite(int is_favorite) {
+        this.is_favorite = is_favorite;
+    }
+
+    public int getIs_Offer() {
+        return is_Offer;
+    }
+
+    public void setIs_Offer(int is_Offer) {
+        this.is_Offer = is_Offer;
+    }
 
     public void setId(int id) {
         this.id = id;

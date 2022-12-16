@@ -23,4 +23,7 @@
         <item name="itemTextAppearanceActive">?attr/textAppearanceCaption</item>
         <item name="itemTextColor">@color/mtrl_navigation_bar_colored_item_tint</item>
     </style>
+
+
+
 </resources>

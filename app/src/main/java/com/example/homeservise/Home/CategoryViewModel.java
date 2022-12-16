@@ -14,14 +14,12 @@ import java.util.List;
 public class CategoryViewModel extends AndroidViewModel {
     //مؤشر على الREPO
     private Repository reposotiry;
-    //TODO  اعمل باقي القيم الراجعه
-    private LiveData<List<Category>> allCategory;
+
 
     public CategoryViewModel(@NonNull Application application) {
         super(application);
         reposotiry=new Repository(application);
-        //TODO اعمل باقي القيم الراجعه
-        allCategory=reposotiry.getAllCategory();
+
     }
 
 
@@ -47,7 +45,7 @@ public class CategoryViewModel extends AndroidViewModel {
     }
 
     LiveData<List<Category>> getAllCategory() {
-        return allCategory;
+        return reposotiry.getAllCategory();
     }
 
 }

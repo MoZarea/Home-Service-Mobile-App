@@ -1,9 +1,5 @@
 package com.example.homeservise.Home;
 
-import android.app.DirectAction;
-import android.app.Notification;
-import android.content.Context;
-import android.graphics.Path;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -11,8 +7,6 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.navigation.NavAction;
-import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -68,7 +62,7 @@ public class HomeFragment extends Fragment {
                  * Navigation to all Services fragment and show data
                  * based on category selected and pass data required to destination
                 */
-                HomeFragmentDirections.ActionHomeFragment2ToAllServicesFragment2 action =HomeFragmentDirections.actionHomeFragment2ToAllServicesFragment2(item.getPic());
+                HomeFragmentDirections.ActionHomeFragment2ToAllServicesFragment2 action =HomeFragmentDirections.actionHomeFragment2ToAllServicesFragment2(item.getTitel());
                 Navigation.findNavController(view).navigate(action);
             }
         });
@@ -139,7 +133,7 @@ public class HomeFragment extends Fragment {
         binding.showAllServices.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                HomeFragmentDirections.ActionHomeFragment2ToAllServicesFragment2 action =HomeFragmentDirections.actionHomeFragment2ToAllServicesFragment2(99);
+                HomeFragmentDirections.ActionHomeFragment2ToAllServicesFragment2 action =HomeFragmentDirections.actionHomeFragment2ToAllServicesFragment2("99");
                 Navigation.findNavController(v).navigate(action);
             }
         });

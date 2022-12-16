@@ -24,55 +24,20 @@ import com.example.homeservise.databinding.FragmentAllServicesBinding;
 
 import java.util.List;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link AllCategoriesFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+
 public class AllCategoriesFragment extends Fragment {
     RecyclerView recyclerViewAllCat;
     CategoryViewModel categoryViewModel;
     CategoryAdapterAll categoryAdapterAll;
     FragmentAllCategoriesBinding binding;
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
     public AllCategoriesFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment AllCategoriesFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static AllCategoriesFragment newInstance(String param1, String param2) {
-        AllCategoriesFragment fragment = new AllCategoriesFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+
     }
 
     @Override
@@ -80,14 +45,19 @@ public class AllCategoriesFragment extends Fragment {
                              Bundle savedInstanceState) {
         binding = FragmentAllCategoriesBinding.inflate(inflater, container, false);
 
+        //////////////////////////////////////////////////////////
+        /////// All Services Adapter with Recycler View /////////
+        ////////////////////////////////////////////////////////
         recyclerViewAllCat =binding.recyclerViewAllCat;
         categoryAdapterAll=new CategoryAdapterAll(new OnItemClickListeners() {
             @Override
             public void onRndomCategoryClick(Category item, View view) {
-                AllCategoriesFragmentDirections.ActionAllCategoriesFragmentToAllServicesFragment action =AllCategoriesFragmentDirections.actionAllCategoriesFragmentToAllServicesFragment(item.getPic());
+                /*
+                 * Navigation to To All Services and show data
+                 * based on Category selected and pass data required to destination
+                 */
+                AllCategoriesFragmentDirections.ActionAllCategoriesFragmentToAllServicesFragment action =AllCategoriesFragmentDirections.actionAllCategoriesFragmentToAllServicesFragment(item.getTitel());
                 Navigation.findNavController(view).navigate(action);
-
-                //todo////////////////////////////
             }
         });
         recyclerViewAllCat.setLayoutManager(new GridLayoutManager(requireActivity(),3));
