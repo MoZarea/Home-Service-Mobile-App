@@ -109,6 +109,9 @@
         <argument
             android:name="serID"
             app:argType="integer" />
+        <argument
+            android:name="serid"
+            app:argType="integer" />
     </fragment>
     <fragment
         android:id="@+id/pickDateTimeFragment"

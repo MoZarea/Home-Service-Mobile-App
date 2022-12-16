@@ -13,6 +13,7 @@ import com.example.homeservise.Domain.OrderValueListener;
 import com.example.homeservise.Domain.Repository;
 import com.example.homeservise.Domain.RoomDatabases;
 import com.example.homeservise.Domain.Services;
+import com.example.homeservise.Domain.ServicesOneValueListener;
 import com.example.homeservise.Domain.ServicesValueListener;
 
 import java.util.List;
@@ -43,7 +44,7 @@ public class ServicesViewModel extends AndroidViewModel {
         reposotiry.deleteAllservices();
     }
 
-    LiveData<List<Services>> getAllServices() {
+    public LiveData<List<Services>> getAllServices() {
         return reposotiry.getAllservices();
     }
 
@@ -57,6 +58,11 @@ public class ServicesViewModel extends AndroidViewModel {
     }
     public LiveData<List<Services>> getAllFavorite() {
         return reposotiry.getAllFavorute();
+    }
+
+
+    public void get_ser_by_id(int id, ServicesOneValueListener listener) {
+reposotiry.get_ser_by_id(id,listener);
     }
 
 /////////////////////////////////////////////////////////////

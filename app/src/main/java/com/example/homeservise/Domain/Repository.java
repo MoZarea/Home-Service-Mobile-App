@@ -123,6 +123,16 @@ public class Repository {
         return servicesDao.getAllFavorute();
     }
 
+    public void get_ser_by_id(int id, ServicesOneValueListener listener) {
+        RoomDatabases.databaseWriteExecutor.execute(new Runnable() {
+            @Override
+            public void run() {
+               Services services = servicesDao.get_ser_by_id(id);
+                listener.onValueSubmit(services);
+            }
+        });
+    }
+
 
     ////////////////////////////////////////////////////////////////////////
     ////////////////////////////user Data//////////////////////////////

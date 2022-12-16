@@ -78,6 +78,7 @@ public class Services {
         this.serPic = serPic;
     }
 
+
     public String getSertitle() {
         return sertitle;
     }

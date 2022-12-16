@@ -37,4 +37,10 @@ public interface ServicesDao {
     LiveData<List<Services>> getAllFavorute();
 
 
+    @Query("select * from services_table where id=:id")
+    Services get_ser_by_id(int id);
+
+
+
+
 }
