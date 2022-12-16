@@ -12,10 +12,7 @@
         android:id="@+id/preferedFragment2"
         android:icon="@drawable/ic_baseline_favorite_24"
         android:title="Prefered" />
-    <item
-        android:id="@+id/walletFragment"
-        android:icon="@drawable/ic_baseline_account_balance_wallet_24"
-        android:title="Wallet" />
+
     <item
         android:id="@+id/profileFragment"
         android:icon="@drawable/ic_baseline_person_24"

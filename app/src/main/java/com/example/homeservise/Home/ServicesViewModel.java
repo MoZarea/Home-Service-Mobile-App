@@ -7,7 +7,9 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
 import com.example.homeservise.Domain.Category;
+import com.example.homeservise.Domain.Oders;
 import com.example.homeservise.Domain.OfferValueListener;
+import com.example.homeservise.Domain.OrderValueListener;
 import com.example.homeservise.Domain.Repository;
 import com.example.homeservise.Domain.RoomDatabases;
 import com.example.homeservise.Domain.Services;
@@ -57,4 +59,34 @@ public class ServicesViewModel extends AndroidViewModel {
         return reposotiry.getAllFavorute();
     }
 
+/////////////////////////////////////////////////////////////
+///////////////////order////////////////////////////////
+/////////////////////////////////////////////////////////////
+    public void insert(Oders oders) {
+            reposotiry.insert(oders);
+    }
+
+    public  void update(Oders oders) {
+            reposotiry.update(oders);
+    }
+
+    public void delete(Oders oders) {
+            reposotiry.delete(oders);
+    }
+
+    public void deleteAllOrders() {
+            reposotiry.deleteAllOrders();
+    }
+
+    public  LiveData<List<Oders>> getAllOders() {
+        return reposotiry.getAllOders();
+    }
+
+    public  void  getOdersbyID(int id, OrderValueListener listener) {
+            reposotiry.getOdersbyID(id,listener);
+    }
+
+    public  void getUserByEmail(int serviceID,OrderValueListener listener) {
+            reposotiry.getOdersbyID(serviceID,listener);
+    }
 }

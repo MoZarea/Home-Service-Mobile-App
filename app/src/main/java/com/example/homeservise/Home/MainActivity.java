@@ -75,7 +75,8 @@ public class MainActivity extends AppCompatActivity {
             public void onDestinationChanged(@NonNull NavController navController, @NonNull NavDestination navDestination, @Nullable Bundle bundle) {
                 if(navDestination.getId()==R.id.detailsFragment||
                         navDestination.getId()==R.id.pickDateTimeFragment||
-                        navDestination.getId()==R.id.pickAddressFragment
+                        navDestination.getId()==R.id.pickAddressFragment||
+                        navDestination.getId()==R.id.profileFragment
                 ){
                     bottomNavigationView.setVisibility(View.GONE);
                 }

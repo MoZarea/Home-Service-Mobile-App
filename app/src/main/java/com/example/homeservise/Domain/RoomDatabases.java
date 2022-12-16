@@ -13,13 +13,17 @@ import com.example.homeservise.R;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 //TODO زود الجدول هنا
-@Database(entities = {Category.class, Services.class},version = 1)
+@Database(entities = {Category.class, Services.class,UserData.class,Oders.class},version = 1)
 public abstract class RoomDatabases extends RoomDatabase {
     private static volatile RoomDatabases instance;
 
     //TODO اعمل باقي الجداول هنا
     public abstract ServicesDao servicesDao();
     public abstract CategoryDao categoryDao();
+    public abstract UserDao userDao();
+    public abstract OrdersDao ordersDao();
+
+
 
     private static final int NUMBER_OF_THREADS = 4;
     static final ExecutorService databaseWriteExecutor =
@@ -93,7 +97,14 @@ public abstract class RoomDatabases extends RoomDatabase {
                 servicesDao.insert(services8);
                 Services services9=new Services(R.drawable.broom,"تنظيف المنزل للمره الواحدة حتى 170 م","250 جنيه","نظافة",0,0,"TODO");
                 servicesDao.insert(services9);
-                
+
+                UserDao userDao = instance.userDao();
+                UserData userData=new UserData("Abdullah Abdelmoti","0123456789","WaledElHanyok@gmail.com",0,"Giza");
+                userDao.insert(userData);
+
+
+
+
 
 
 

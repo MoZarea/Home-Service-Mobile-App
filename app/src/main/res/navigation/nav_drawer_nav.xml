@@ -115,12 +115,39 @@
         <action
             android:id="@+id/action_pickDateTimeFragment_to_pickAddressFragment"
             app:destination="@id/pickAddressFragment" />
+        <argument
+            android:name="Price"
+            app:argType="integer" />
+        <argument
+            android:name="serTitle"
+            app:argType="string" />
+        <argument
+            android:name="cat_title"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/pickAddressFragment"
         android:name="com.example.homeservise.PickAddressFragment"
         android:label="fragment_pick_address"
-        tools:layout="@layout/fragment_pick_address" />
+        tools:layout="@layout/fragment_pick_address" >
+        <argument
+            android:name="price"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_pickAddressFragment_to_ordersFragment"
+            app:destination="@id/ordersFragment" />
+        <argument
+            android:name="ser_title"
+            app:argType="string" />
+        <argument android:name="cat_title"
+            app:argType="string" />
+        <argument
+            android:name="date"
+            app:argType="string" />
+        <argument
+            android:name="time"
+            app:argType="string" />
+    </fragment>
     <fragment
         android:id="@+id/featureFragment"
         android:name="com.example.homeservise.FeatureFragment"
@@ -129,6 +156,37 @@
         <action
             android:id="@+id/action_featureFragment_to_pickDateTimeFragment"
             app:destination="@id/pickDateTimeFragment" />
+        <argument
+            android:name="price"
+            app:argType="integer" />
+        <argument
+            android:name="service_title"
+            app:argType="string" />
+        <argument
+            android:name="cat_title"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/ordersFragment"
+        android:name="com.example.homeservise.OrdersFragment"
+        android:label="fragment_orders"
+        tools:layout="@layout/fragment_orders" >
+        <argument
+            android:name="price"
+            app:argType="integer" />
+        <argument
+            android:name="ser_title"
+            app:argType="string" />
+        <argument android:name="cat_title"
+            app:argType="string" />
+        <argument
+            android:name="date"
+            app:argType="string" />
+        <argument
+            android:name="time"
+            app:argType="string" />
+        <argument android:name="Adress"
+            app:argType="string" />
     </fragment>
 
 </navigation>
