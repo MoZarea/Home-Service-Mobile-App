@@ -3,8 +3,10 @@ package com.example.homeservise.Domain;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import java.io.Serializable;
+
 @Entity(tableName = "services_table")
-public class Services {
+public class Services implements Serializable {
     @PrimaryKey(autoGenerate = true)
     private int id;
     private int serPic;

@@ -91,7 +91,6 @@ reposotiry.get_ser_by_id(id,listener);
     public  void  getOdersbyID(int id, OrderValueListener listener) {
             reposotiry.getOdersbyID(id,listener);
     }
-
     public  void getUserByEmail(int serviceID,OrderValueListener listener) {
             reposotiry.getOdersbyID(serviceID,listener);
     }

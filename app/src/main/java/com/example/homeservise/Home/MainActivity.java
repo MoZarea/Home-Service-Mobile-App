@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
     Toolbar toolbar;
     DrawerLayout drawerLayout;
     CategoryViewModel categoryViewModel;
+    ServicesViewModel servicesViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         setContentView(binding.getRoot());
 
+        servicesViewModel=new ViewModelProvider(this).get(ServicesViewModel.class);
 
         categoryViewModel = new ViewModelProvider(this).get(CategoryViewModel.class);
 //        categoryViewModel.
@@ -80,6 +82,7 @@ public class MainActivity extends AppCompatActivity {
                         navDestination.getId()==R.id.featureFragment
                 ){
                     bottomNavigationView.setVisibility(View.GONE);
+
                 }
                 else{
                     bottomNavigationView.setVisibility(View.VISIBLE);

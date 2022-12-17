@@ -15,9 +15,7 @@
             android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginEnd="15dp"
+            android:padding="10dp"
             android:text="ادخل العنوان "
             android:textColor="@color/black"
             android:textSize="20sp"
@@ -26,197 +24,212 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/phone"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="30dp"
-
-            android:layout_marginRight="10dp"
-            android:background="@color/white"
-            app:boxStrokeColor="@color/Primarycolor"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:hint="المحافظة"
-            android:textColorHint="@color/black"
-            app:layout_constraintStart_toStartOf="parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/constraintLayout2"
             app:layout_constraintTop_toBottomOf="@+id/textView">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/phonee"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-                android:textColor="@color/black"
-                android:inputType="text" />
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/Adderss1_layout"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
 
-        </com.google.android.material.textfield.TextInputLayout>
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="30dp"
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/phone2"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_marginRight="10dp"
+                    android:background="@color/white"
+                    android:hint="المحافظة"
+                    android:textColorHint="@color/black"
+                    app:boxStrokeColor="@color/Primarycolor"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView">
 
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/address1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
 
-            android:layout_marginTop="30dp"
-            android:layout_marginRight="10dp"
-            android:background="@color/white"
-            app:boxStrokeColor="@color/Primarycolor"
-            android:hint="المنظقة"
-            android:textColorHint="@color/black"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/phone">
+                        android:inputType="text"
+                        android:textColor="@color/black" />
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/phonee2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/black"
+                </com.google.android.material.textfield.TextInputLayout>
 
-                android:inputType="text" />
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/Adderss2_layout"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
 
-        </com.google.android.material.textfield.TextInputLayout>
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/phone22"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@color/white"
+                    android:hint="المنظقة"
+                    android:textColorHint="@color/black"
+                    app:boxStrokeColor="@color/Primarycolor"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/Adderss1_layout">
 
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/address2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="text"
 
-            android:layout_marginTop="30dp"
-            android:layout_marginRight="10dp"
-            android:background="@color/white"
-            android:hint="الشارع "
-            android:textColorHint="@color/black"
-            app:boxStrokeColor="@color/Primarycolor"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/phone2">
+                        android:textColor="@color/black" />
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/phonee22"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/black"
+                </com.google.android.material.textfield.TextInputLayout>
 
-                android:inputType="text" />
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/Adderss3_layout"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
 
-        </com.google.android.material.textfield.TextInputLayout>
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/phone222"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@color/white"
+                    android:hint="الشارع "
+                    android:textColorHint="@color/black"
+                    app:boxStrokeColor="@color/Primarycolor"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/phone2">
 
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/address3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="text"
 
-            android:layout_marginLeft="10dp"
+                        android:textColor="@color/black" />
 
-            android:layout_marginTop="30dp"
-            android:layout_marginRight="10dp"
-            android:background="@color/white"
-            app:boxStrokeColor="@color/Primarycolor"
-            android:hint="علامة مميزة  "
-            android:textColorHint="@color/black"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/phone22">
+                </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/phonee222"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColorHint="@color/black"
-                android:textColor="@color/black"
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/Adderss4_layout"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
 
-                android:inputType="text" />
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
 
-        </com.google.android.material.textfield.TextInputLayout>
+                    android:layout_marginLeft="10dp"
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/phone2222"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@color/white"
+                    android:hint="علامة مميزة  "
+                    android:textColorHint="@color/black"
+                    app:boxStrokeColor="@color/Primarycolor"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/phone22">
 
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/address4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="text"
+                        android:textColor="@color/black"
 
-            android:layout_marginTop="30dp"
-            android:layout_marginRight="10dp"
-            android:background="@color/white"
-            app:boxStrokeColor="@color/Primarycolor"
-            android:hint="رقم العمارة   "
-            android:textColorHint="@color/black"
+                        android:textColorHint="@color/black" />
 
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/phone222">
+                </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/phonee2222"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/black"
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/Adderss5_layout"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
 
-                android:inputType="text" />
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
 
-        </com.google.android.material.textfield.TextInputLayout>
+                    android:layout_marginTop="30dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@color/white"
+                    android:hint="رقم العمارة   "
+                    android:textColorHint="@color/black"
+                    app:boxStrokeColor="@color/Primarycolor"
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/phone22222"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/phone222">
 
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/address5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="text"
 
-            android:layout_marginTop="30dp"
-            android:layout_marginRight="10dp"
-            android:background="@color/white"
-            android:hint="رقم الشقة   "
-            android:textColorHint="@color/black"
-            app:boxStrokeColor="@color/Primarycolor"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/phone2222">
+                        android:textColor="@color/black" />
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/phonee22222"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:inputType="text" />
+                </com.google.android.material.textfield.TextInputLayout>
 
-        </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/Adderss6_layout"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+
+                    android:layout_marginTop="30dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@color/white"
+                    android:hint="رقم الشقة   "
+                    android:layout_marginBottom="10dp"
+                    android:textColorHint="@color/black"
+                    app:boxStrokeColor="@color/Primarycolor"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/phone2222">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/address6"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="text"
+                        android:textColor="@color/black" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+        </ScrollView>
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="5dp"
             android:background="@color/primaryDarkColor22"
 
+            android:padding="5dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">
 
             <Button
-                android:id="@+id/tohome"
+                android:id="@+id/to_final_order"
                 android:layout_width="match_parent"
                 android:layout_height="55dp"
-                android:text="تأكيد العنوان"
                 android:layout_marginLeft="24dp"
                 android:layout_marginRight="24dp"
+                android:backgroundTint="@color/secondaryColorm"
+                android:text="تأكيد العنوان"
                 android:textColor="#000000"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                android:backgroundTint="@color/secondaryColorm"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

@@ -3,8 +3,10 @@ package com.example.homeservise.Domain;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import java.io.Serializable;
+
 @Entity
-public class Oders {
+public class Oders  implements Serializable {
     @PrimaryKey(autoGenerate = true)
     int orderID;
     int serviceID;
@@ -14,12 +16,19 @@ public class Oders {
     String date;
     String time;
     String address;
+    String notes;
 
-    public Oders(int serviceID, int totalCost, String ser_title, String cat_title) {
-        this.serviceID = serviceID;
-        this.totalCost = totalCost;
-        this.ser_title = ser_title;
-        this.cat_title = cat_title;
+
+    public Oders() {
+
+    }
+
+    public String getNotes() {
+        return notes;
+    }
+
+    public void setNotes(String notes) {
+        this.notes = notes;
     }
 
     public int getOrderID() {

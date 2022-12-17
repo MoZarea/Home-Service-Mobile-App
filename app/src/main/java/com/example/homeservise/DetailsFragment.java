@@ -25,7 +25,7 @@ public class DetailsFragment extends Fragment {
     FragmentDetailsBinding binding;
     DetailsFragmentArgs args;
     ServicesViewModel servicesViewModel;
-    Services service ;
+    Oders new_oders ;
     public DetailsFragment() {
     }
 
@@ -45,15 +45,29 @@ public class DetailsFragment extends Fragment {
         args=DetailsFragmentArgs.fromBundle(getArguments());
         //bind data recieved to layout
 
+        binding.title.setText(args.getService().getSertitle());
+        binding.categoty.setText(args.getService().getSerCat());
+        binding.details.setText(args.getService().getSerDiscribtion());
+        binding.price.setText(args.getService().getSerPrice());
+        new_oders=new Oders();
 
         binding.book.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(service.getWith_extra_data()==1){
-                    Navigation.findNavController(v).navigate(R.id.action_detailsFragment_to_featureFragment);
+                if(args.getService().getWith_extra_data()==1){
+
+                    DetailsFragmentDirections.ActionDetailsFragmentToFeatureFragment action=DetailsFragmentDirections.actionDetailsFragmentToFeatureFragment(args.getService(),new_oders);
+                    Navigation.findNavController(v).navigate(action);
                 }
                 else{
-                    Navigation.findNavController(v).navigate(R.id.action_detailsFragment_to_pickDateTimeFragment);
+                    new_oders.setNotes("لطلب خدمات اضافيه يرجي التحديد مع خدمة العملاء");
+                    new_oders.setTotalCost(args.getService().getSer_Price());
+                    new_oders.setServiceID(args.getService().getId());
+                    new_oders.setSer_title(args.getService().getSertitle());
+                    new_oders.setCat_title(args.getService().getSerCat());
+                    DetailsFragmentDirections.ActionDetailsFragmentToPickDateTimeFragment action=DetailsFragmentDirections.actionDetailsFragmentToPickDateTimeFragment(args.getService(),new_oders);
+
+                    Navigation.findNavController(v).navigate(action);
                 }
             }
         });
@@ -64,26 +78,6 @@ public class DetailsFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        servicesViewModel.getAllServices().observe(requireActivity(), new Observer<List<Services>>() {
-            @Override
-            public void onChanged(List<Services> services) {
-
-            }
-        });
-        servicesViewModel.get_ser_by_id(args.getSerID(), new ServicesOneValueListener() {
-            @Override
-            public void onValueSubmit(Services servicesu) {
-                service=servicesu;
-
-                binding.title.setText(servicesu.getSertitle());
-                binding.categoty.setText(servicesu.getSerCat());
-                binding.details.setText(servicesu.getSerDiscribtion());
-                binding.price.setText(servicesu.getSerPrice());
-                Oders oders = new Oders(servicesu.getId(),servicesu.getSer_Price(),servicesu.getSertitle(),servicesu.getSerCat());
-                servicesViewModel.insert(oders);
-
-            }
-        });
 
 
     }

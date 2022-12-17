@@ -171,6 +171,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
                 <RadioGroup
+                    android:id="@+id/radioGroup"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
@@ -285,7 +286,6 @@
                     android:layout_height="wrap_content"
 
                     style="@style/Widget.MaterialComponents.Chip.Choice"
-app:selectionRequired="true"
                     android:layout_marginTop="10dp">
 
 
@@ -315,15 +315,7 @@ app:selectionRequired="true"
                         android:text="مواعين عزومات"
                         />
 
-                    <com.google.android.material.chip.Chip
-                        android:id="@+id/no_extra"
-                        android:checked="true"
-                        android:padding="50dp"
-                        style="@style/Widget.MaterialComponents.Chip.Choice"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="لا"
-                         />
+
 
 
                 </com.google.android.material.chip.ChipGroup>
