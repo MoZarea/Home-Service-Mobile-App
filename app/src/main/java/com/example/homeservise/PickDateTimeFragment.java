@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.DatePicker;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import com.example.homeservise.Domain.Oders;
 import com.example.homeservise.Home.ServicesViewModel;
@@ -70,13 +71,17 @@ public class PickDateTimeFragment extends Fragment {
         binding.toAddress.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(date==null||time==null){
+                    Toast.makeText(getActivity(), "التاريخ او الوقت  لم يتم تحديدهم بعد  ", Toast.LENGTH_SHORT).show();
+                }
+                else{
 
                 args.getOrder().setDate(date);
                 args.getOrder().setTime(time);
                 //navigation to pickAddressFragment
                 PickDateTimeFragmentDirections.ActionPickDateTimeFragmentToPickAddressFragment action =PickDateTimeFragmentDirections.actionPickDateTimeFragmentToPickAddressFragment(args.getService(),args.getOrder());
                 Navigation.findNavController(v).navigate(action);
-            }
+            }}
         });
         return binding.getRoot();
     }

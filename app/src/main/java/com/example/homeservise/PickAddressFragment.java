@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 
 import android.text.Editable;
@@ -14,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.example.homeservise.Home.ServicesViewModel;
 import com.example.homeservise.databinding.FragmentPickAddressBinding;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
@@ -28,6 +30,7 @@ public class PickAddressFragment extends Fragment {
     String address4 ;
     String address5 ;
     String address6 ;
+    ServicesViewModel servicesViewModel;
 
 
 
@@ -45,6 +48,7 @@ public class PickAddressFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding = FragmentPickAddressBinding.inflate(inflater, container, false);
+        servicesViewModel=new ViewModelProvider(requireActivity()).get(ServicesViewModel.class);
         args = PickAddressFragmentArgs.fromBundle(getArguments());
         binding.address1.addTextChangedListener(new TextWatcher() {
             @Override
@@ -54,7 +58,7 @@ public class PickAddressFragment extends Fragment {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-
+                binding.Adderss1Layout.setError(null);
             }
 
             @Override
@@ -79,7 +83,7 @@ public class PickAddressFragment extends Fragment {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-
+                binding.Adderss1Layout.setError(null);
             }
 
             @Override
@@ -93,7 +97,6 @@ public class PickAddressFragment extends Fragment {
                     binding.Adderss2Layout.setError(null);
                     address2=s.toString();
                 }
-
             }
         });
         binding.address3.addTextChangedListener(new TextWatcher() {
@@ -104,7 +107,7 @@ public class PickAddressFragment extends Fragment {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-
+                binding.Adderss1Layout.setError(null);
             }
 
             @Override
@@ -128,7 +131,7 @@ public class PickAddressFragment extends Fragment {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-
+                binding.Adderss1Layout.setError(null);
             }
 
             @Override
@@ -152,7 +155,7 @@ public class PickAddressFragment extends Fragment {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-
+                binding.Adderss1Layout.setError(null);
             }
 
             @Override
@@ -176,7 +179,7 @@ public class PickAddressFragment extends Fragment {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-
+                binding.Adderss1Layout.setError(null);
             }
 
             @Override
@@ -205,9 +208,11 @@ public class PickAddressFragment extends Fragment {
                     Toast.makeText(getActivity(), "اكمل الحقول الفارغة", Toast.LENGTH_SHORT).show();
                 }
                 else{
-                    args.getOrder().setAddress(address6+" رقم الشقة : "+address5+" رقم العمارة : "+address4+" علامة مميزة : "+address3+" الشارع : "+address2+" المنطقة : "+address1+" المحافظة : ");
-                    PickAddressFragmentDirections.ActionPickAddressFragmentToOrdersFragment action=PickAddressFragmentDirections.actionPickAddressFragmentToOrdersFragment(args.getOrder(),args.getService());
-                    Navigation.findNavController(v).navigate(action);
+                    args.getOrder().setParticular_address(address1+" , "+address2);
+                    args.getOrder().setTotal_address(address1+" , "+address2);
+                    servicesViewModel.insert(args.getOrder());
+                    Navigation.findNavController(v).navigate(R.id.homeFragment2);
+                    Navigation.findNavController(v).navigate(R.id.ordersFragment);
                 }
             }
         });

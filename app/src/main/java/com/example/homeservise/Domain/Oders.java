@@ -10,25 +10,18 @@ public class Oders  implements Serializable {
     @PrimaryKey(autoGenerate = true)
     int orderID;
     int serviceID;
-    int  totalCost;
+    int totalCost;
     String ser_title;
     String cat_title;
     String date;
     String time;
-    String address;
+    String particular_address;
+    String total_address;
     String notes;
 
 
     public Oders() {
 
-    }
-
-    public String getNotes() {
-        return notes;
-    }
-
-    public void setNotes(String notes) {
-        this.notes = notes;
     }
 
     public int getOrderID() {
@@ -87,11 +80,27 @@ public class Oders  implements Serializable {
         this.time = time;
     }
 
-    public String getAddress() {
-        return address;
+    public String getParticular_address() {
+        return particular_address;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setParticular_address(String particular_address) {
+        this.particular_address = particular_address;
+    }
+
+    public String getTotal_address() {
+        return total_address;
+    }
+
+    public void setTotal_address(String total_address) {
+        this.total_address = total_address;
+    }
+
+    public String getNotes() {
+        return notes;
+    }
+
+    public void setNotes(String notes) {
+        this.notes = notes;
     }
 }
