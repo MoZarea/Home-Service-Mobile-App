@@ -126,6 +126,9 @@
         <action
             android:id="@+id/action_pickAddressFragment_to_homeFragment2"
             app:destination="@id/homeFragment2" />
+        <action
+            android:id="@+id/action_pickAddressFragment_to_ordersFragment"
+            app:destination="@id/ordersFragment" />
     </fragment>
     <fragment
         android:id="@+id/featureFragment"
@@ -150,9 +153,6 @@
         <argument
             android:name="order"
             app:argType="com.example.homeservise.Domain.Oders" />
-        <argument
-            android:name="service"
-            app:argType="com.example.homeservise.Domain.Services" />
         <action
             android:id="@+id/action_ordersFragment_to_finalOrderDetailsFragment"
             app:destination="@id/finalOrderDetailsFragment" />
@@ -166,5 +166,15 @@
             android:name="order"
             app:argType="com.example.homeservise.Domain.Oders" />
     </fragment>
+    <fragment
+        android:id="@+id/suggest"
+        android:name="com.example.homeservise.Suggest"
+        android:label="fragment_suggest"
+        tools:layout="@layout/fragment_suggest" />
+    <fragment
+        android:id="@+id/callUsFragment"
+        android:name="com.example.homeservise.CallUsFragment"
+        android:label="fragment_call_us"
+        tools:layout="@layout/fragment_call_us" />
 
 </navigation>

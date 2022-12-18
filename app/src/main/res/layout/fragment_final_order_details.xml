@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".FinalOrderDetailsFragment"
     xmlns:tools="http://schemas.android.com/tools">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:background="@color/gray2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".FinalOrderDetailsFragment">
+        >
 
 
         <com.google.android.material.divider.MaterialDivider
@@ -243,6 +244,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
+                android:id="@+id/notes"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="ملاحظات"
@@ -251,5 +253,19 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView20" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <Button
+            android:id="@+id/cancel_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+           android:layout_marginRight="20dp"
+            android:text="الغاء الطلب"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:backgroundTint="@color/red"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -12,17 +12,22 @@
         android:id="@+id/preferedFragment2"
         android:icon="@drawable/ic_baseline_favorite_24"
         android:title="Prefered" />
+    <item
+        android:id="@+id/ordersFragment"
+        android:icon="@drawable/ic_baseline_person_24"
+        android:title="My Order" />
 
     <item
         android:id="@+id/profileFragment"
         android:icon="@drawable/ic_baseline_person_24"
         android:title="Profile" />
     <item
-        android:id="@+id/callUs"
+        android:id="@+id/callUsFragment"
         android:icon="@drawable/ic_baseline_person_24"
         android:title="Call Us" />
     <item
-        android:id="@+id/Suggestion"
+        android:id="@+id/suggest"
         android:icon="@drawable/ic_baseline_person_24"
         android:title="Suggestion" />
+
 </menu>

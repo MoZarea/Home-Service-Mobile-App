@@ -14,7 +14,11 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 
 import com.example.homeservise.OrdersFragment;
@@ -91,6 +95,43 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+//        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+//            @Override
+//            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+//                if(item.getItemId()==R.id.callUs){
+//                    Intent sendIntent = new Intent();
+//
+////                    sendIntent.putExtra(Intent.EXTRA_TEXT, "This is my text to send.");
+////                    sendIntent.setType("text/plain");
+//                    String  number= "+201150191031";
+//                    startActivity(
+//                            new Intent(Intent.ACTION_VIEW,
+//                                    Uri.parse(
+//                                            String.format("https://api.whatsapp.com/send?phone=%s&text=%s", number, "بطل صياح")
+//                                    )
+//                            )
+//                    );
+//
+//                }
+//                if(item.getItemId()==R.id.Suggestion){
+//                    Intent sendIntent = new Intent();
+//                    String  number= "+201150191031";
+//                    startActivity(
+//                            new Intent(Intent.ACTION_VIEW,
+//                                    Uri.parse(
+//                                            String.format("https://api.whatsapp.com/send?phone=%s&text=%s", number, "قدم لنا ملاحظاتك او اى شكاوي او مشكلات واجهتها لنتمكن من تحسين الخدمة المقدمة اليكم")
+//                                    )
+//                            )
+//                    );
+//
+//                }
+//
+//
+//                return false;
+//            }
+//        });
+
+
 
 
 

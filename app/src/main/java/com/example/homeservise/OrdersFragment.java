@@ -34,7 +34,6 @@ import java.util.List;
 
 public class OrdersFragment extends Fragment   {
 FragmentOrdersBinding binding;
-//public static Backpressedlistener backpressedlistener;
 
 RecyclerView recyclerView_order;
 OrderAdapterAll orderAdapterAll;
@@ -61,9 +60,9 @@ BottomNavigationView bottomNavigationView;
         servicesViewModel=new ViewModelProvider(requireActivity()).get(ServicesViewModel.class);
         orderAdapterAll =new OrderAdapterAll(new OrderOneValueListener() {
             @Override
-            public void onValueSubmit(Oders order, View itemView) {
-                servicesViewModel.delete(order);
-                OrdersFragmentDirections.ActionOrdersFragmentToFinalOrderDetailsFragment action=OrdersFragmentDirections.actionOrdersFragmentToFinalOrderDetailsFragment(order);
+            public void onValueSubmit(Oders orderss, View itemView) {
+                servicesViewModel.delete(orderss);
+                OrdersFragmentDirections.ActionOrdersFragmentToFinalOrderDetailsFragment action=OrdersFragmentDirections.actionOrdersFragmentToFinalOrderDetailsFragment(orderss);
                 Navigation.findNavController(itemView).navigate(action);
 
 
