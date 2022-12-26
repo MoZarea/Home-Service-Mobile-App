@@ -26,7 +26,7 @@
     <color name="primaryLightColorm">#4b585e</color>
     <color name="primaryback">#e0e0e0</color>
     <color name="primaryDarkColorm">#00050d</color>
-    <color name="secondaryColorm">#f9aa33</color>
+    <color name="secondaryColorm">#81D4FA</color>
     <color name="secondaryLightColorm">#ffdc65</color>
     <color name="secondaryDarkColorm">#c17b00</color>
     <color name="primaryTextColorm">#ffffff</color>
@@ -35,8 +35,8 @@
     <color name="primaryColor22">#0277bd</color>
     <color name="primaryLightColor22">#58a5f0</color>
     <color name="primaryDarkColor22">#004c8c</color>
-    <color name="secondaryColor22">#e65100</color>
-    <color name="secondaryLightColor22">#ff833a</color>
+    <color name="secondaryColor22">#F4A579</color>
+    <color name="secondaryLightColor22">#EF9A9A</color>
     <color name="secondaryDarkColor22">#ac1900</color>
     <color name="primaryTextColor22">#ffffff</color>
     <color name="secondaryTextColor22">#000000</color>

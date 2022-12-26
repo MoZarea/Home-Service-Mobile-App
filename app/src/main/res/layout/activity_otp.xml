@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+<androidx.constraintlayout.widget.ConstraintLayout
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".OTP">
+
+    <ImageView
+        android:id="@+id/picture_iv"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_marginBottom="28dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/verification"
+        app:layout_constraintBottom_toTopOf="@+id/first_tv"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/first_tv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:gravity="center"
+        android:text="OTP VERIFICATION"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/picture_iv" />
+
+    <TextView
+        android:id="@+id/second_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:text="Enter your Mail or Phone"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/first_tv" />
+
+    <TextView
+        android:id="@+id/third_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="number to send OTP"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/second_tv" />
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/linear_lo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/third_tv">
+
+        <Button
+            android:id="@+id/btnmail"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="#f1c232"
+            android:paddingStart="40dp"
+            android:text="Mail"
+            android:textColor="@color/black"
+            android:textSize="20dp" />
+
+        <Button
+            android:id="@+id/btnphone"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="@color/gray"
+            android:paddingStart="40dp"
+            android:text="Phone"
+            android:textColor="@color/black"
+            android:textSize="20dp" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/email1"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="45dp"
+        android:layout_marginEnd="16dp"
+        android:hint="Enter your mail"
+        app:endIconDrawable="@drawable/ic_baseline_attach_email_24"
+        app:endIconMode="custom"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+
+        app:layout_constraintTop_toBottomOf="@id/linear_lo">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/input_email"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="textEmailAddress"
+            android:textSize="20dp" />
+    </com.google.android.material.textfield.TextInputLayout>
+   
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/phone1"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="45dp"
+        android:layout_marginEnd="16dp"
+        android:hint="Enter your phone"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/email1">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/inputphone"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="phone"
+            android:textSize="20dp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/send_code"
+        android:layout_width="match_parent"
+
+        android:layout_height="60dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="50dp"
+        android:backgroundTint="#f1c232"
+        android:text="Send OTP"
+        android:textColor="@color/black"
+
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
+
+
+
+
+

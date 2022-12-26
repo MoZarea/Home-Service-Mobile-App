@@ -9,7 +9,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.homeservise.Domain.Category;
+import com.example.homeservise.Data.Category.Category;
 import com.example.homeservise.Home.OnItemClickListeners;
 import com.example.homeservise.R;
 
@@ -57,8 +57,6 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.CATvie
         TextView tv_name;
         ImageView iv_image;
         Category category;
-
-
         public CATviewHolder(@NonNull View itemView) {
             super(itemView);
             tv_name = itemView.findViewById(R.id.catTitle);

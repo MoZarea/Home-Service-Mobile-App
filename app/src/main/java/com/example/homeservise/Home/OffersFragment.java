@@ -14,8 +14,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.homeservise.Domain.FavorListener;
-import com.example.homeservise.Domain.Services;
+import com.example.homeservise.Listener.Service.FavorListener;
+import com.example.homeservise.Data.Service.Services;
 import com.example.homeservise.adapters.ServicesAdapterAll;
 import com.example.homeservise.databinding.FragmentOffersBinding;
 

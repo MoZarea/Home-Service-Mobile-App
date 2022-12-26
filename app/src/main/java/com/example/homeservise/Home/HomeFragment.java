@@ -15,8 +15,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.homeservise.Domain.Category;
-import com.example.homeservise.Domain.Services;
+import com.example.homeservise.Data.Category.Category;
+import com.example.homeservise.Data.Service.Services;
 import com.example.homeservise.R;
 import com.example.homeservise.adapters.CategoryAdapter;
 import com.example.homeservise.adapters.ServicesAdapter;
@@ -35,8 +35,6 @@ public class HomeFragment extends Fragment {
     CategoryAdapter categoryAdapter;
     ServicesAdapter servicesAdapter;
     BottomNavigationView navigationView;
-
-
 
 
     public HomeFragment() {

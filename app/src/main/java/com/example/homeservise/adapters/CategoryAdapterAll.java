@@ -9,7 +9,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.homeservise.Domain.Category;
+import com.example.homeservise.Data.Category.Category;
 import com.example.homeservise.Home.OnItemClickListeners;
 import com.example.homeservise.R;
 

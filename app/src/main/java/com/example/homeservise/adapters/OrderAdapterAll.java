@@ -9,9 +9,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.homeservise.Domain.Oders;
-import com.example.homeservise.Domain.OrderOneValueListener;
-import com.example.homeservise.Domain.Services;
+import com.example.homeservise.Data.Order.Orders;
+import com.example.homeservise.Listener.Order.OrderOneValueListener;
 import com.example.homeservise.R;
 
 import java.util.ArrayList;
@@ -19,7 +18,7 @@ import java.util.Date;
 import java.util.List;
 
 public class OrderAdapterAll extends RecyclerView.Adapter<OrderAdapterAll.Viewholderpop> {
-    List<Oders> order=new ArrayList<>();
+    List<Orders> order=new ArrayList<>();
     OrderOneValueListener listeners;
     public OrderAdapterAll(OrderOneValueListener listeners) {
         this.listeners=listeners;
@@ -37,7 +36,7 @@ public class OrderAdapterAll extends RecyclerView.Adapter<OrderAdapterAll.Viewho
 
     @Override
     public void onBindViewHolder(@NonNull Viewholderpop holder, int position) {
-        Oders current_order =order.get(position);
+        Orders current_order =order.get(position);
         holder.bind(current_order);
 
     }
@@ -49,7 +48,7 @@ public class OrderAdapterAll extends RecyclerView.Adapter<OrderAdapterAll.Viewho
 
     public class Viewholderpop extends RecyclerView.ViewHolder{
         TextView order_time, order_date, order_cost ,order_address ,order_number,today_date ,order_ser_title, order_category;
-        Oders oders;
+        Orders oders;
         public Viewholderpop(@NonNull View itemView) {
             super(itemView);
             order_time = itemView.findViewById(R.id.order_time);
@@ -69,7 +68,7 @@ public class OrderAdapterAll extends RecyclerView.Adapter<OrderAdapterAll.Viewho
                 }
             });
         }
-        void bind(Oders orders){
+        void bind(Orders orders){
             this.oders =orders;
             order_time.setText(orders.getTime());
             order_date.setText(orders.getDate());
@@ -85,7 +84,7 @@ public class OrderAdapterAll extends RecyclerView.Adapter<OrderAdapterAll.Viewho
             order_category.setText("الخدمة: "+orders.getCat_title());
         }
     }
-    public void setData(List<Oders> orders) {
+    public void setData(List<Orders> orders) {
         this.order = orders;
         notifyDataSetChanged();
     }

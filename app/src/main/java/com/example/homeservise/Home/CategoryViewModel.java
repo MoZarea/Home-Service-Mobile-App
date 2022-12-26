@@ -6,8 +6,8 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
-import com.example.homeservise.Domain.Category;
-import com.example.homeservise.Domain.Repository;
+import com.example.homeservise.Data.Category.Category;
+import com.example.homeservise.Data.Repository;
 
 import java.util.List;
 

@@ -6,15 +6,12 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
-import com.example.homeservise.Domain.Category;
-import com.example.homeservise.Domain.Oders;
-import com.example.homeservise.Domain.OfferValueListener;
-import com.example.homeservise.Domain.OrderValueListener;
-import com.example.homeservise.Domain.Repository;
-import com.example.homeservise.Domain.RoomDatabases;
-import com.example.homeservise.Domain.Services;
-import com.example.homeservise.Domain.ServicesOneValueListener;
-import com.example.homeservise.Domain.ServicesValueListener;
+import com.example.homeservise.Data.Order.Orders;
+import com.example.homeservise.Listener.Order.OrderValueListener;
+import com.example.homeservise.Data.Repository;
+import com.example.homeservise.Data.Service.Services;
+import com.example.homeservise.Listener.Service.ServicesOneValueListener;
+import com.example.homeservise.Listener.Service.ServicesValueListener;
 
 import java.util.List;
 
@@ -24,9 +21,6 @@ public class ServicesViewModel extends AndroidViewModel {
     public ServicesViewModel(@NonNull Application application) {
         super(application);
         reposotiry=new Repository(application);
-
-
-
 
     }
     void insert(Services services) {
@@ -68,15 +62,15 @@ reposotiry.get_ser_by_id(id,listener);
 /////////////////////////////////////////////////////////////
 ///////////////////order////////////////////////////////
 /////////////////////////////////////////////////////////////
-    public void insert(Oders oders) {
+    public void insert(Orders oders) {
             reposotiry.insert(oders);
     }
 
-    public  void update(Oders oders) {
+    public  void update(Orders oders) {
             reposotiry.update(oders);
     }
 
-    public void delete(Oders oders) {
+    public void delete(Orders oders) {
             reposotiry.delete(oders);
     }
 
@@ -84,7 +78,7 @@ reposotiry.get_ser_by_id(id,listener);
             reposotiry.deleteAllOrders();
     }
 
-    public  LiveData<List<Oders>> getAllOders() {
+    public  LiveData<List<Orders>> getAllOders() {
         return reposotiry.getAllOders();
     }
 

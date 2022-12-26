@@ -37,6 +37,9 @@
 
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
+                app:menu="@menu/logout_menu"
+                app:titleTextColor="@color/white"
+                app:subtitleTextColor="@color/white"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/primaryDarkColor22"
@@ -64,6 +67,7 @@
             android:id="@+id/navigation_drawer"
             app:headerLayout="@layout/drawer_header"
             android:layout_gravity="start"
+
             app:menu="@menu/navigation_drawer_menu"/>
 
     </androidx.drawerlayout.widget.DrawerLayout>

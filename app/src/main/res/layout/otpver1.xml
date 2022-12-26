@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="42dp"
+                android:layout_height="31dp"
+                android:layout_marginLeft="20dp"
+                android:src="@drawable/back" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="243dp"
+            android:layout_height="253dp"
+            android:layout_marginBottom="5dp"
+            android:gravity="center"
+            android:scaleType="fitCenter"
+            android:src="@drawable/otp_ver" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="Get A Code"
+            android:textColor="@color/black"
+            android:textSize="30sp"
+
+
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="Enter the Code you recieved"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+
+            android:text="sent to your phone number"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+
+            />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText
+                android:layout_width="248dp"
+                android:layout_height="60dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/rounded_corners"
+                android:fontFamily="sans-serif-condensed-medium"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+
+                />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:text="Didn't recieve otp ?"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+
+            />
+
+        <TextView
+            android:id="@+id/resend_code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-black"
+            android:text="Resend"
+            android:textColor="#d4bf40"
+            android:textSize="14sp"
+
+            />
+
+        <Button
+            android:id="@+id/confirm_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/rounded_corners"
+            android:fontFamily="sans-serif-black"
+            android:hint="Confirm"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            app:backgroundTint="@color/Primarycolor" />
+
+
+    </LinearLayout>
+</layout>

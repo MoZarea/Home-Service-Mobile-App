@@ -1,5 +1,7 @@
 package com.example.homeservise.Home;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -11,14 +13,14 @@ import androidx.lifecycle.ViewModelProvider;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 
-import com.example.homeservise.Domain.UserData;
-import com.example.homeservise.R;
-import com.example.homeservise.databinding.FragmentPreferedBinding;
+import com.example.homeservise.Data.User.UserData;
 import com.example.homeservise.databinding.FragmentProfileBinding;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
 
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class ProfileFragment extends Fragment {
@@ -26,8 +28,8 @@ public class ProfileFragment extends Fragment {
     UserViewModel userViewModel;
     int primaryKey;
     int wallet;
-    UserData userData2;
-
+    UserData current_user;
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
 
 
     public ProfileFragment() {
@@ -54,26 +56,44 @@ public class ProfileFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        userViewModel.getUserOne().observe(requireActivity(), new Observer<List<UserData>>() {
+       String UID= FirebaseAuth.getInstance().getCurrentUser().getUid();
+        userViewModel.getUserByUID(UID).observe(requireActivity(), new Observer<UserData>() {
             @Override
-            public void onChanged(List<UserData> userData) {
-                userData2=userData.get(0);
-                binding.nameUnderPic.setText(userData.get(0).getName());
-                binding.emailUnderPic.setText(userData.get(0).getEmail());
-                binding.name.setText(userData.get(0).getName());
-                binding.email.setText(userData.get(0).getEmail());
-                binding.phone.setText(userData.get(0).getPhone());
-                binding.address.setText(userData.get(0).getAddress());
-            }
+            public void onChanged(UserData userData) {
+                current_user=userData;
+                if(current_user!=null) {
+                    binding.nameUnderPic.setText(current_user.getName());
+
+                binding.emailUnderPic.setText(current_user.getEmail());
+                binding.name.setText(current_user.getName());
+                binding.email.setText(current_user.getEmail());
+                binding.phone.setText(current_user.getPhone());
+                binding.address.setText("");
+}}
+
+
         });
+
+
+
+
+
         binding.confirmButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                userData2.setName(binding.name.getText().toString());
-                userData2.setEmail(binding.email.getText().toString());
-                userData2.setPhone(binding.phone.getText().toString());
-                userData2.setAddress(binding.address.getText().toString());
-                userViewModel.update(userData2);
+                current_user.setName(binding.name.getText().toString());
+                current_user.setEmail(binding.email.getText().toString());
+                current_user.setPhone(binding.phone.getText().toString());
+                userViewModel.update(current_user);
+                Map<String, Object> user = new HashMap<>();
+                user.put("name",binding.name.getText().toString() );
+                user.put("email", binding.email.getText().toString());
+                user.put("phone",binding.phone.getText().toString() );
+                SharedPreferences preferences = getActivity().getSharedPreferences("my_id", Context.MODE_PRIVATE);
+                String id= preferences.getString("id","def");
+                db.collection("new").document(id).update(user);
+
+
 
             }
         });

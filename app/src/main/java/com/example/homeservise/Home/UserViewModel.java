@@ -6,9 +6,9 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
-import com.example.homeservise.Domain.Repository;
-import com.example.homeservise.Domain.UserData;
-import com.example.homeservise.Domain.UserValueListener;
+import com.example.homeservise.Data.Repository;
+import com.example.homeservise.Data.User.UserData;
+import com.example.homeservise.Listener.User.UserValueoneListener;
 
 import java.util.List;
 
@@ -47,15 +47,15 @@ public class UserViewModel extends AndroidViewModel {
         return reposotiry.getUserOne();
     }
 
-    public void getUserByEmail(String email, UserValueListener listener) {
+    public void getUserByEmail(String email, UserValueoneListener listener) {
                reposotiry.getUserByEmail(email,listener);
     }
 
-    public void getUserByPhone(String phone, UserValueListener listener) {
+    public void getUserByPhone(String phone, UserValueoneListener listener) {
                  reposotiry.getUserByEmail(phone,listener);
     }
 
-    public void getUserByName(String name, UserValueListener listener) {
-               reposotiry.getUserByEmail(name,listener);
+    public LiveData<UserData> getUserByUID(String id) {
+              return reposotiry.getUserByUID(id);
     }
 }

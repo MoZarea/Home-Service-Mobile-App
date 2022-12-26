@@ -11,8 +11,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.homeservise.Domain.FavorListener;
-import com.example.homeservise.Domain.Services;
+import com.example.homeservise.Listener.Service.FavorListener;
+import com.example.homeservise.Data.Service.Services;
 import com.example.homeservise.Home.OnServiceSelectedFromAll;
 import com.example.homeservise.R;
 

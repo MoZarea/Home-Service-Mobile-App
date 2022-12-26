@@ -6,8 +6,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.databinding.DataBindingUtil;
 import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.lifecycle.ViewModelStoreOwner;
 import androidx.navigation.NavController;
 import androidx.navigation.NavDestination;
 import androidx.navigation.Navigation;
@@ -15,17 +15,18 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import android.content.Intent;
-import android.net.Uri;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.example.homeservise.OrdersFragment;
+import com.example.homeservise.Data.User.UserData;
+import com.example.homeservise.Login.Login;
 import com.example.homeservise.R;
 import com.example.homeservise.databinding.ActivityMainBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -38,23 +39,44 @@ public class MainActivity extends AppCompatActivity {
     DrawerLayout drawerLayout;
     CategoryViewModel categoryViewModel;
     ServicesViewModel servicesViewModel;
+    UserViewModel userViewModel;
+    UserData current_user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (FirebaseAuth.getInstance().getCurrentUser() == null) {
+            startActivity(new Intent(getBaseContext(), Login.class));
+        }
 
         //inflate xml layout
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         setContentView(binding.getRoot());
 
-        servicesViewModel=new ViewModelProvider(this).get(ServicesViewModel.class);
 
-        categoryViewModel = new ViewModelProvider(this).get(CategoryViewModel.class);
+       Intent intent=getIntent();
+       String id = intent.getStringExtra("id");
+        if(id!=null) {
+            SharedPreferences sharedPreferences = getSharedPreferences("my_id",MODE_PRIVATE);
+            SharedPreferences.Editor myEdit = sharedPreferences.edit();
+            myEdit.putString("id", id);
+            myEdit.commit();
+        }
+        userViewModel = new ViewModelProvider(this).get(UserViewModel.class);
+
+        servicesViewModel = new ViewModelProvider(this).get(ServicesViewModel.class);
+//        userViewModel = new ViewModelProvider(this).get(UserViewModel.class);
+        userViewModel = new ViewModelProvider((ViewModelStoreOwner) this, (ViewModelProvider.Factory) new ViewModelProvider.AndroidViewModelFactory(getApplication())).get(UserViewModel.class);
+
+
 //        categoryViewModel.
+        categoryViewModel = new ViewModelProvider(this).get(CategoryViewModel.class);
 
 
         //bind views from layout
         toolbar = binding.toolbar;
+
+
         navigationView = binding.navigationDrawer;
         bottomNavigationView = binding.bottomNavigation;
         drawerLayout = binding.drawerLayout;
@@ -80,62 +102,35 @@ public class MainActivity extends AppCompatActivity {
         navController.addOnDestinationChangedListener(new NavController.OnDestinationChangedListener() {
             @Override
             public void onDestinationChanged(@NonNull NavController navController, @NonNull NavDestination navDestination, @Nullable Bundle bundle) {
-                if(navDestination.getId()==R.id.detailsFragment||
-                        navDestination.getId()==R.id.pickDateTimeFragment||
-                        navDestination.getId()==R.id.pickAddressFragment||
-                        navDestination.getId()==R.id.profileFragment||
-                        navDestination.getId()==R.id.featureFragment
-                ){
+                if (navDestination.getId() == R.id.detailsFragment ||
+                        navDestination.getId() == R.id.pickDateTimeFragment ||
+                        navDestination.getId() == R.id.pickAddressFragment ||
+                        navDestination.getId() == R.id.profileFragment ||
+                        navDestination.getId() == R.id.featureFragment
+                ) {
                     bottomNavigationView.setVisibility(View.GONE);
 
-                }
-                else{
+                } else {
                     bottomNavigationView.setVisibility(View.VISIBLE);
                 }
 
             }
         });
-//        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
-//            @Override
-//            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-//                if(item.getItemId()==R.id.callUs){
-//                    Intent sendIntent = new Intent();
-//
-////                    sendIntent.putExtra(Intent.EXTRA_TEXT, "This is my text to send.");
-////                    sendIntent.setType("text/plain");
-//                    String  number= "+201150191031";
-//                    startActivity(
-//                            new Intent(Intent.ACTION_VIEW,
-//                                    Uri.parse(
-//                                            String.format("https://api.whatsapp.com/send?phone=%s&text=%s", number, "بطل صياح")
-//                                    )
-//                            )
-//                    );
-//
-//                }
-//                if(item.getItemId()==R.id.Suggestion){
-//                    Intent sendIntent = new Intent();
-//                    String  number= "+201150191031";
-//                    startActivity(
-//                            new Intent(Intent.ACTION_VIEW,
-//                                    Uri.parse(
-//                                            String.format("https://api.whatsapp.com/send?phone=%s&text=%s", number, "قدم لنا ملاحظاتك او اى شكاوي او مشكلات واجهتها لنتمكن من تحسين الخدمة المقدمة اليكم")
-//                                    )
-//                            )
-//                    );
-//
-//                }
-//
-//
-//                return false;
-//            }
-//        });
+        toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
 
+                if (item.getItemId() == R.id.logout) {
+                    FirebaseAuth.getInstance().signOut();
+                    startActivity(new Intent(getBaseContext(), Login.class));
+                    servicesViewModel.deleteAllOrders();
 
-
+                }
+                return false;
+            }
+        });
 
 
     }
-
 
 }

@@ -81,7 +81,7 @@
     </fragment>
     <fragment
         android:id="@+id/detailsFragment"
-        android:name="com.example.homeservise.DetailsFragment"
+        android:name="com.example.homeservise.Home.DetailsFragment"
         android:label="fragment_details"
         tools:layout="@layout/fragment_details" >
 
@@ -93,12 +93,12 @@
             app:destination="@id/featureFragment" />
         <argument
             android:name="service"
-            app:argType="com.example.homeservise.Domain.Services" />
+            app:argType="com.example.homeservise.Data.Service.Services" />
 
     </fragment>
     <fragment
         android:id="@+id/pickDateTimeFragment"
-        android:name="com.example.homeservise.PickDateTimeFragment"
+        android:name="com.example.homeservise.Home.PickDateTimeFragment"
         android:label="fragment_pick_date_time"
         tools:layout="@layout/fragment_pick_date_time" >
         <action
@@ -106,23 +106,23 @@
             app:destination="@id/pickAddressFragment" />
         <argument
             android:name="service"
-            app:argType="com.example.homeservise.Domain.Services" />
+            app:argType="com.example.homeservise.Data.Service.Services" />
         <argument
             android:name="order"
-            app:argType="com.example.homeservise.Domain.Oders" />
+            app:argType="com.example.homeservise.Data.Order.Orders" />
     </fragment>
     <fragment
         android:id="@+id/pickAddressFragment"
-        android:name="com.example.homeservise.PickAddressFragment"
+        android:name="com.example.homeservise.Home.PickAddressFragment"
         android:label="fragment_pick_address"
         tools:layout="@layout/fragment_pick_address" >
 
         <argument
             android:name="service"
-            app:argType="com.example.homeservise.Domain.Services" />
+            app:argType="com.example.homeservise.Data.Service.Services" />
         <argument
             android:name="order"
-            app:argType="com.example.homeservise.Domain.Oders" />
+            app:argType="com.example.homeservise.Data.Order.Orders" />
         <action
             android:id="@+id/action_pickAddressFragment_to_homeFragment2"
             app:destination="@id/homeFragment2" />
@@ -132,7 +132,7 @@
     </fragment>
     <fragment
         android:id="@+id/featureFragment"
-        android:name="com.example.homeservise.FeatureFragment"
+        android:name="com.example.homeservise.Home.FeatureFragment"
         android:label="fragment_feature"
         tools:layout="@layout/fragment_feature" >
         <action
@@ -140,40 +140,40 @@
             app:destination="@id/pickDateTimeFragment" />
         <argument
             android:name="service"
-            app:argType="com.example.homeservise.Domain.Services" />
+            app:argType="com.example.homeservise.Data.Service.Services" />
         <argument
             android:name="order"
-            app:argType="com.example.homeservise.Domain.Oders" />
+            app:argType="com.example.homeservise.Data.Order.Orders" />
     </fragment>
     <fragment
         android:id="@+id/ordersFragment"
-        android:name="com.example.homeservise.OrdersFragment"
+        android:name="com.example.homeservise.Home.OrdersFragment"
         android:label="fragment_orders"
         tools:layout="@layout/fragment_orders" >
         <argument
             android:name="order"
-            app:argType="com.example.homeservise.Domain.Oders" />
+            app:argType="com.example.homeservise.Data.Order.Orders" />
         <action
             android:id="@+id/action_ordersFragment_to_finalOrderDetailsFragment"
             app:destination="@id/finalOrderDetailsFragment" />
     </fragment>
     <fragment
         android:id="@+id/finalOrderDetailsFragment"
-        android:name="com.example.homeservise.FinalOrderDetailsFragment"
+        android:name="com.example.homeservise.Home.FinalOrderDetailsFragment"
         android:label="fragment_final_order_details"
         tools:layout="@layout/fragment_final_order_details" >
         <argument
             android:name="order"
-            app:argType="com.example.homeservise.Domain.Oders" />
+            app:argType="com.example.homeservise.Data.Order.Orders" />
     </fragment>
     <fragment
         android:id="@+id/suggest"
-        android:name="com.example.homeservise.Suggest"
+        android:name="com.example.homeservise.Home.Suggest"
         android:label="fragment_suggest"
         tools:layout="@layout/fragment_suggest" />
     <fragment
         android:id="@+id/callUsFragment"
-        android:name="com.example.homeservise.CallUsFragment"
+        android:name="com.example.homeservise.Home.CallUsFragment"
         android:label="fragment_call_us"
         tools:layout="@layout/fragment_call_us" />
 
