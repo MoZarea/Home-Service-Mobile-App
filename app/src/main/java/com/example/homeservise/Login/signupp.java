@@ -101,21 +101,16 @@ public class signupp extends AppCompatActivity {
                                 newUser.setUID(FirebaseAuth.getInstance().getUid());
 
                                 userViewModel.insert(newUser);
-                                db.collection("new")
-                                        .add(newUser)
-                                        .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                                db.collection("new").document(FirebaseAuth.getInstance().getUid())
+                                        .set(newUser).addOnSuccessListener(new OnSuccessListener<Void>() {
                                             @Override
-                                            public void onSuccess(DocumentReference documentReference) {
-                                                Log.d(TAG, "DocumentSnapshot added with ID: " + documentReference.getId());
-                                                String id=documentReference.getId();
-                                                newUser.setFSC(id);
+                                            public void onSuccess(Void unused) {
                                                 userViewModel.insert(newUser);
                                                 Intent intent = new Intent(getBaseContext(), MainActivity.class);
-                                                intent.putExtra("id",id);
                                                 startActivity(intent);
-
                                             }
                                         })
+
                                         .addOnFailureListener(new OnFailureListener() {
                                             @Override
                                             public void onFailure(@NonNull Exception e) {

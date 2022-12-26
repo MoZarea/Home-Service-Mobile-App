@@ -14,7 +14,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.homeservise.Data.User.UserData;
 import com.example.homeservise.databinding.FragmentSuggestBinding;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class Suggest extends Fragment {
     FragmentSuggestBinding binding;
@@ -46,6 +48,7 @@ public class Suggest extends Fragment {
                 )
         );
         getActivity().getSupportFragmentManager().popBackStack();
+
     }
 
     @Override
