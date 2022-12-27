@@ -10,22 +10,22 @@
         android:icon="@drawable/ic_baseline_favorite_24"
         android:title="المفضلة" />
     <item
-        android:id="@+id/ordersFragment"
-        android:icon="@drawable/ic_baseline_person_24"
-        android:title="طلباتى" />
+            android:id="@+id/ordersFragment"
+            android:icon="@drawable/baseline_shopping_cart_24"
+            android:title="طلباتى"/>
 
     <item
         android:id="@+id/profileFragment"
         android:icon="@drawable/ic_baseline_person_24"
         android:title="الملف الشخصي" />
     <item
-        android:id="@+id/callUsFragment"
-        android:icon="@drawable/ic_baseline_person_24"
-        android:title="اتصل بنا" />
+            android:id="@+id/callUsFragment"
+            android:icon="@drawable/baseline_phone_24"
+            android:title="اتصل بنا"/>
     <item
-        android:id="@+id/suggest"
-        android:icon="@drawable/ic_baseline_person_24"
-        android:title="الشكاوى والمقتراحات " />
+            android:id="@+id/suggest"
+            android:icon="@drawable/baseline_settings_suggest_24"
+            android:title="الشكاوى والمقتراحات "/>
 
 
 

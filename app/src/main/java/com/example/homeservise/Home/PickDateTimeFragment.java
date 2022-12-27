@@ -53,6 +53,8 @@ public class PickDateTimeFragment extends Fragment {
                     date = year+ "/" +monthOfYear+ "/" +dayOfMonth;
                 }
             });
+            /*--------------->min date in current date<---------------*/
+            datePicker.setMinDate(System.currentTimeMillis());
         }
         /*--------------->get time from user<---------------*/
         chipGroup.setOnCheckedStateChangeListener(new ChipGroup.OnCheckedStateChangeListener() {

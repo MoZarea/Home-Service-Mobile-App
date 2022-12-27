@@ -71,10 +71,16 @@ public class signupp extends AppCompatActivity {
         if (email.isEmpty() || pass.isEmpty() || name.isEmpty() || phone.isEmpty() || conf_pass.isEmpty()) {
             Toast.makeText(this, "اكمل باقي الحقول", Toast.LENGTH_SHORT).show();
 
+
         } else if (!pass.equals(conf_pass)) {
             Toast.makeText(this, "كلمه السر غير متطابقة ", Toast.LENGTH_SHORT).show();
 
-        } else {
+        } else if(pass.length()<6){
+            Toast.makeText(this, "كلمة المرور يجب الا تقل عن 6 ارقام او حروف ", Toast.LENGTH_SHORT).show();
+
+        }
+
+        else {
             /*------------------->create new user via firebase Auth<-------------*/
             FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, pass)
                     .addOnCompleteListener(new OnCompleteListener<AuthResult>() {

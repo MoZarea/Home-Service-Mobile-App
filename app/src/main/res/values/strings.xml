@@ -10,7 +10,7 @@
     <string name="OR">OR</string>
     <string name="Donthaveanyaccount">Dont have any account?</string>
     <string name="SignUp">Sign Up</string>
-    <string name="Alreadyhaveanaccount"> Have already an account?</string>
+    <string name="Alreadyhaveanaccount">Have already an account?</string>
     <string name="Name">The Name</string>
     <string name="ConfirmPassword">Confirm Password</string>
     <!-- TODO: Remove or change this placeholder text -->
@@ -41,7 +41,6 @@
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
     <string name="eader_text">Hello</string>
-
 
 
 </resources>

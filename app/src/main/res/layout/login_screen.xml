@@ -100,7 +100,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/login"
-                app:hintTextAppearance="@android:style/Theme.Black" app:helperTextEnabled="false">
+                app:helperTextEnabled="false">
 
             <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/phonee"

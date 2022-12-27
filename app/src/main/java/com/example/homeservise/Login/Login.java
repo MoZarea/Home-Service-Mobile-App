@@ -2,6 +2,7 @@ package com.example.homeservise.Login;
 
 import static android.content.ContentValues.TAG;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -96,6 +97,11 @@ public class Login extends AppCompatActivity {
             Toast.makeText(this, " احد الحقول فارغة", Toast.LENGTH_SHORT).show();
         }
 
+    }
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        System.exit(0);
     }
 
 
