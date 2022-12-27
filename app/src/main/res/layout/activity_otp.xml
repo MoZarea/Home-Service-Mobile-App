@@ -41,7 +41,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:gravity="center"
-        android:text="Enter your Mail or Phone"
+        android:text="Enter your  email"
         android:textSize="15dp"
         android:textStyle="bold"
         app:layout_constraintTop_toBottomOf="@id/first_tv" />
@@ -51,7 +51,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="number to send OTP"
+        android:text=" to send OTP"
         android:textSize="15dp"
         android:textStyle="bold"
         app:layout_constraintTop_toBottomOf="@id/second_tv" />
@@ -64,31 +64,22 @@
         android:orientation="horizontal"
         app:layout_constraintTop_toBottomOf="@id/third_tv">
 
-        <Button
-            android:id="@+id/btnmail"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:backgroundTint="#f1c232"
-            android:paddingStart="40dp"
-            android:text="Mail"
-            android:textColor="@color/black"
-            android:textSize="20dp" />
 
         <Button
             android:id="@+id/btnphone"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:backgroundTint="@color/gray"
+            android:backgroundTint="#f1c232"
             android:paddingStart="40dp"
-            android:text="Phone"
+            android:text="email"
             android:textColor="@color/black"
             android:textSize="20dp" />
     </androidx.appcompat.widget.LinearLayoutCompat>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/email1"
+        android:visibility="visible"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -113,6 +104,7 @@
    
 
     <com.google.android.material.textfield.TextInputLayout
+
         android:id="@+id/phone1"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
@@ -149,10 +141,11 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent" /><![CDATA[
 
     />
 
+]]>
 </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
 

@@ -56,12 +56,8 @@ public class PreferedFragment extends Fragment  {
             }
         }, new FavorListener() {
             @Override
-            public void onbuttonSubmit(Services current_service, boolean is_checked) {
-                if (is_checked) {
-                    current_service.setIs_favorite(1);
-                } else {
-                    current_service.setIs_favorite(0);
-                }
+            public void onbuttonSubmit(Services current_service) {
+
                 servicesViewModel.update(current_service);
 
 

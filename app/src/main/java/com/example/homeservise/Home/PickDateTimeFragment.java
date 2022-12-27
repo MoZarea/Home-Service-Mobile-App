@@ -50,11 +50,12 @@ public class PickDateTimeFragment extends Fragment {
                 @Override
                 public void onDateChanged(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
 
-                    date = year+ "/" +monthOfYear+ "/" +dayOfMonth;
+                    date = year+ "/" +(monthOfYear+1)+ "/" +dayOfMonth;
                 }
             });
             /*--------------->min date in current date<---------------*/
             datePicker.setMinDate(System.currentTimeMillis());
+
         }
         /*--------------->get time from user<---------------*/
         chipGroup.setOnCheckedStateChangeListener(new ChipGroup.OnCheckedStateChangeListener() {

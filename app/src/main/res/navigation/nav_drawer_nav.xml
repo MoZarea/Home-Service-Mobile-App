@@ -166,14 +166,14 @@
                 app:argType="com.example.homeservise.Data.Order.Orders"/>
     </fragment>
     <fragment
-        android:id="@+id/suggest"
-        android:name="com.example.homeservise.Home.Suggest"
-        android:label="fragment_suggest"
-        tools:layout="@layout/fragment_suggest" />
+            android:id="@+id/suggest"
+            android:name="com.example.homeservise.Home.Suggest"
+            android:label="Home Service App"
+            tools:layout="@layout/fragment_suggest"/>
     <fragment
-        android:id="@+id/callUsFragment"
-        android:name="com.example.homeservise.Home.CallUsFragment"
-        android:label="fragment_call_us"
-        tools:layout="@layout/fragment_call_us" />
+            android:id="@+id/callUsFragment"
+            android:name="com.example.homeservise.Home.CallUsFragment"
+            android:label="Home Service App"
+            tools:layout="@layout/fragment_call_us"/>
 
 </navigation>

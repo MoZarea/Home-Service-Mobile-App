@@ -52,7 +52,7 @@ public class Login extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                //TODO..................
+                startActivity(new Intent(getBaseContext(),OTP.class));
             }
         });
 

@@ -9,12 +9,15 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.homeservise.Home.ServicesViewModel;
 import com.example.homeservise.Listener.Service.FavorListener;
 import com.example.homeservise.Data.Service.Services;
 import com.example.homeservise.Home.OnServiceSelectedFromAll;
 import com.example.homeservise.R;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,6 +25,8 @@ import java.util.List;
 public class ServicesAdapterAll extends RecyclerView.Adapter<ServicesAdapterAll.Viewholderpop> {
     /*-----> List to save incoming data <------*/
     List<Services> services=new ArrayList<>();
+
+
     /*---->listener for item click<---------*/
     OnServiceSelectedFromAll listeners;
     /*---->listener for favor (heart)<---------*/
@@ -36,18 +41,33 @@ public class ServicesAdapterAll extends RecyclerView.Adapter<ServicesAdapterAll.
     @NonNull
     @Override
     public Viewholderpop onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+
         View v= LayoutInflater.from(parent.getContext()).inflate(R.layout.services_item_vertival_for_all,parent,false);
         return new Viewholderpop(v);
     }
     /*--------------->get position for item wanted in recycler view<---------------*/
     @Override
     public void onBindViewHolder(@NonNull Viewholderpop holder, int position) {
+
         Services current_service =services.get(position);
-        holder.checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            /*--------------->send data to listener in activity<---------------*/
+
+//        holder.checkBox.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                favorListener.onbuttonSubmit(current_service);
+//            }
+//        });
+        holder.checkBox.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                favorListener.onbuttonSubmit(current_service,isChecked);
+            public void onClick(View v) {
+                if (current_service.getIs_favorite()==0) {
+                    current_service.setIs_favorite(1);
+                } else if(current_service.getIs_favorite()==1){
+                    current_service.setIs_favorite(0);
+
+                }
+                             favorListener.onbuttonSubmit(current_service);
+
             }
         });
         holder.bind(current_service);
@@ -64,12 +84,14 @@ public class ServicesAdapterAll extends RecyclerView.Adapter<ServicesAdapterAll.
     }
     /*--------------->data binding<---------------*/
     public class Viewholderpop extends RecyclerView.ViewHolder{
+
         TextView  tvSerTitle,tv_Serprice;
         ImageView Serimage;
         Services services;
         CheckBox checkBox;
         public Viewholderpop(@NonNull View itemView) {
             super(itemView);
+
             tvSerTitle = itemView.findViewById(R.id.serTitle);
             tv_Serprice = itemView.findViewById(R.id.SerPrice);
             Serimage = itemView.findViewById(R.id.SerPic);
@@ -99,4 +121,9 @@ public class ServicesAdapterAll extends RecyclerView.Adapter<ServicesAdapterAll.
         notifyDataSetChanged();
     }
 
+    @Override
+    public void onViewRecycled(@NonNull @NotNull Viewholderpop holder) {
+        holder.checkBox.setChecked(false);
+        super.onViewRecycled(holder);
+    }
 }

@@ -43,6 +43,8 @@ public class AllServicesFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding = FragmentAllServicesBinding.inflate(inflater, container, false);
+        servicesViewModel = new ViewModelProvider(requireActivity()).get(ServicesViewModel.class);
+
 
         /*--------------->getting arguments<---------------*/
         args = AllServicesFragmentArgs.fromBundle(getArguments());
@@ -62,19 +64,14 @@ public class AllServicesFragment extends Fragment {
             }
         }, new FavorListener() {
             @Override
-            public void onbuttonSubmit(Services current_service, boolean is_checked) {
-                if (is_checked) {
-                    current_service.setIs_favorite(1);
-                } else {
-                    current_service.setIs_favorite(0);
-                }
+            public void onbuttonSubmit(Services current_service) {
+
                 servicesViewModel.update(current_service);
             }
         });
         recyclerViewAllSer.setLayoutManager(new LinearLayoutManager(requireActivity(), LinearLayoutManager.VERTICAL, false));
         recyclerViewAllSer.setHasFixedSize(true);
         recyclerViewAllSer.setAdapter(servicesAdapterAll);
-        servicesViewModel = new ViewModelProvider(requireActivity()).get(ServicesViewModel.class);
 
         return binding.getRoot();
 
