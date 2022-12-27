@@ -35,21 +35,22 @@ public class DetailsFragment extends Fragment {
                              Bundle savedInstanceState) {
         binding=FragmentDetailsBinding.inflate(inflater,container,false);
         servicesViewModel=new ViewModelProvider(requireActivity()).get(ServicesViewModel.class);
-        //recieve Argument
+        /*--------------->getting arguments<---------------*/
         args=DetailsFragmentArgs.fromBundle(getArguments());
-        //bind data recieved to layout
 
+        /*--------------->setting data to layout<---------------*/
         binding.title.setText(args.getService().getSertitle());
         binding.categoty.setText(args.getService().getSerCat());
         binding.details.setText(args.getService().getSerDiscribtion());
         binding.price.setText(args.getService().getSerPrice());
         new_oders=new Orders();
-
+        /*--------------->listener for booking new service<---------------*/
         binding.book.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                /*--------------->if the services that user choice is with options<---------------*/
                 if(args.getService().getWith_extra_data()==1){
-
+                    /*--------------->navigate into next fragment<---------------*/
                     DetailsFragmentDirections.ActionDetailsFragmentToFeatureFragment action=DetailsFragmentDirections.actionDetailsFragmentToFeatureFragment(args.getService(),new_oders);
                     Navigation.findNavController(v).navigate(action);
                 }
@@ -59,8 +60,8 @@ public class DetailsFragment extends Fragment {
                     new_oders.setServiceID(args.getService().getId());
                     new_oders.setSer_title(args.getService().getSertitle());
                     new_oders.setCat_title(args.getService().getSerCat());
+                    /*--------------->navigate into next fragment<---------------*/
                     DetailsFragmentDirections.ActionDetailsFragmentToPickDateTimeFragment action=DetailsFragmentDirections.actionDetailsFragmentToPickDateTimeFragment(args.getService(),new_oders);
-
                     Navigation.findNavController(v).navigate(action);
                 }
             }

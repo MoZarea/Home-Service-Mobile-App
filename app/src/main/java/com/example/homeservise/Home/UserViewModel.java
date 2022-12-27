@@ -13,6 +13,7 @@ import com.example.homeservise.Listener.User.UserValueoneListener;
 import java.util.List;
 
 public class UserViewModel extends AndroidViewModel {
+    /*--------------->reference on repo<---------------*/
     private Repository reposotiry;
 
     public UserViewModel(@NonNull Application application) {
@@ -20,6 +21,7 @@ public class UserViewModel extends AndroidViewModel {
         reposotiry=new Repository(application);
 
     }
+    /*--------------->here all method needed to serve the UI <---------------*/
 
     public void insert(UserData userData) {
                 reposotiry.insert(userData);

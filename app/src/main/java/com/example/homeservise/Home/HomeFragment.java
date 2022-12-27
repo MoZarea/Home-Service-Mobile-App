@@ -50,10 +50,7 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding =  FragmentHomeBinding.inflate(inflater, container, false);
-        //////////////////////////////////////////////////////////
-        ///////Category Adapter with Recycler View //////////////
-        ////////////////////////////////////////////////////////
-
+        /*--------------->adapter binding<---------------*/
         categoryAdapter=new CategoryAdapter(new OnItemClickListeners() {
             @Override
             public void onRndomCategoryClick(Category item, View view) {
@@ -72,9 +69,7 @@ public class HomeFragment extends Fragment {
         categoryViewModel= new ViewModelProvider(requireActivity()).get(CategoryViewModel.class);
 
 
-        //////////////////////////////////////////////////////////
-        ///////Services Adapter with Recycler View //////////////
-        ////////////////////////////////////////////////////////
+        /*--------------->adapter binding <---------------*/
         servicesAdapter=new ServicesAdapter(new OnServiceSelectedFromAll() {
             @Override
             public void onServiceSelected(Services services, View view) {
@@ -98,27 +93,22 @@ public class HomeFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        /*
-        *    update the  category adapter with Live Data
-        */
+        /*--------------->update adapter with data<---------------*/
         categoryViewModel.getAllCategory().observe(requireActivity(), new Observer<List<Category>>() {
             @Override
             public void onChanged(List<Category> categories) {
                 categoryAdapter.setData(categories);
             }
         });
-        /*
-         *    update the  services adapter with Live Data
-         */
+        /*--------------->update adapter with data<---------------*/
         servicesViewModel.getAllServices().observe(requireActivity(), new Observer<List<Services>>() {
             @Override
             public void onChanged(List<Services> services) {
                 servicesAdapter.setData(services);
             }
         });
-        /*
-         *    navigation to all Categories Fragment when button clicked
-         */
+        /*--------------->navigation to net fragment<---------------*/
+
         binding.showAllCategory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -3,17 +3,5 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="192dp"
-    android:background="@color/purple_200"
-    android:padding="30sp">
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:contentDescription="@string/hello_blank_fragment"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/googleg_standard_color_18" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    android:background="@color/Primarycolor"
+    android:padding="30sp"/>

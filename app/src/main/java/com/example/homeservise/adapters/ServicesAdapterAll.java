@@ -20,35 +20,36 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ServicesAdapterAll extends RecyclerView.Adapter<ServicesAdapterAll.Viewholderpop> {
+    /*-----> List to save incoming data <------*/
     List<Services> services=new ArrayList<>();
+    /*---->listener for item click<---------*/
     OnServiceSelectedFromAll listeners;
+    /*---->listener for favor (heart)<---------*/
     FavorListener favorListener;
+    /*--------------->constructor with listener as a parameter<---------------*/
     public ServicesAdapterAll(OnServiceSelectedFromAll listeners,FavorListener listener) {
         this.listeners=listeners;
         this.favorListener=listener;
 
     }
-
-
-
+    /*---------------> on create method to inflate item layout<---------------*/
     @NonNull
     @Override
     public Viewholderpop onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v= LayoutInflater.from(parent.getContext()).inflate(R.layout.services_item_vertival_for_all,parent,false);
         return new Viewholderpop(v);
     }
-
+    /*--------------->get position for item wanted in recycler view<---------------*/
     @Override
     public void onBindViewHolder(@NonNull Viewholderpop holder, int position) {
         Services current_service =services.get(position);
         holder.checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            /*--------------->send data to listener in activity<---------------*/
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 favorListener.onbuttonSubmit(current_service,isChecked);
-
             }
         });
-
         holder.bind(current_service);
 
 
@@ -56,12 +57,12 @@ public class ServicesAdapterAll extends RecyclerView.Adapter<ServicesAdapterAll.
 
 
     }
-
+    /*--------------->get count of data that will be show in RV<---------------*/
     @Override
     public int getItemCount() {
       return services.size();
     }
-
+    /*--------------->data binding<---------------*/
     public class Viewholderpop extends RecyclerView.ViewHolder{
         TextView  tvSerTitle,tv_Serprice;
         ImageView Serimage;
@@ -82,6 +83,7 @@ public class ServicesAdapterAll extends RecyclerView.Adapter<ServicesAdapterAll.
                 }
             });
         }
+        /*--------------->data binding<---------------*/
         void bind(Services services){
             this.services=services;
             tvSerTitle.setText(services.getSertitle());
@@ -91,6 +93,7 @@ public class ServicesAdapterAll extends RecyclerView.Adapter<ServicesAdapterAll.
 
         }
     }
+    /*--------------->get updated data from database<---------------*/
     public void setData(List<Services> services) {
         this.services = services;
         notifyDataSetChanged();

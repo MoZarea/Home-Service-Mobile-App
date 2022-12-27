@@ -13,11 +13,14 @@
 
         <TextView
             android:id="@+id/textView25"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:text="Select Date"
+            android:background="@color/Primarycolor"
+            android:layout_marginTop="0dp"
+            android:padding="6dp"
+            android:gravity="right"
+            android:layout_marginBottom="7dp"
+            android:text="حدد التاريخ"
             android:textColor="@color/black"
             android:textSize="20dp"
             android:textStyle="bold"
@@ -48,15 +51,17 @@
 
         <TextView
             android:id="@+id/textView26"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="7dp"
             android:layout_marginBottom="5dp"
-            android:text="Select Date"
+            android:text="حدد الوقت"
             android:textColor="@color/black"
             android:textSize="20dp"
             android:textStyle="bold"
+            android:gravity="right"
+            android:padding="6dp"
+            android:background="@color/Primarycolor"
             app:layout_constraintBottom_toTopOf="@+id/horizontalScrollView"
             app:layout_constraintStart_toStartOf="@+id/horizontalScrollView"
             app:layout_constraintTop_toBottomOf="@+id/calenderv" />
@@ -310,8 +315,8 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/primaryDarkColor22"
+            android:layout_height="55dp"
+            android:background="#FFF9C4"
 
             android:padding="5dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -322,10 +327,8 @@
                 android:id="@+id/to_address"
                 android:layout_width="match_parent"
                 android:layout_height="55dp"
-                android:layout_marginStart="24dp"
 
-                android:layout_marginEnd="24dp"
-                android:backgroundTint="@color/secondaryColorm"
+                android:backgroundTint="@color/Primarycolor"
                 android:text="تأكيد الموعد"
                 android:textColor="#000000"
                 android:textSize="20sp"

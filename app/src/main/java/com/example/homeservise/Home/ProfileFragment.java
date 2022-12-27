@@ -1,7 +1,5 @@
 package com.example.homeservise.Home;
 
-import android.content.Context;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -9,12 +7,11 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
-
+import com.example.homeservise.Data.User.UserData;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.homeservise.Data.User.UserData;
 import com.example.homeservise.databinding.FragmentProfileBinding;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -24,20 +21,14 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.HashMap;
 import java.util.Map;
 
-
 public class ProfileFragment extends Fragment {
     FragmentProfileBinding binding;
     UserViewModel userViewModel;
-    int primaryKey;
-    int wallet;
     UserData current_user;
     FirebaseFirestore db = FirebaseFirestore.getInstance();
 
-
     public ProfileFragment() {
-        // Required empty public constructor
     }
-
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -58,7 +49,9 @@ public class ProfileFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        /*--------------->getting current user UID from firebase<---------------*/
         String UID = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        /*--------------->get user data from local data base if exist<---------------*/
         userViewModel.getUserByUID(UID).observe(requireActivity(), new Observer<UserData>() {
             @Override
             public void onChanged(UserData userData) {
@@ -70,9 +63,9 @@ public class ProfileFragment extends Fragment {
                     binding.name.setText(current_user.getName());
                     binding.email.setText(current_user.getEmail());
                     binding.phone.setText(current_user.getPhone());
-                    binding.address.setText("");
                 }
                 else{
+                    /*--------------->else..get data from firebase db<---------------*/
                     db.collection("new").document(FirebaseAuth.getInstance().getUid()).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                         @Override
                         public void onSuccess(DocumentSnapshot documentSnapshot) {
@@ -83,7 +76,6 @@ public class ProfileFragment extends Fragment {
                             binding.name.setText(current_user.getName());
                             binding.email.setText(current_user.getEmail());
                             binding.phone.setText(current_user.getPhone());
-                            binding.address.setText("");
 
                         }
                     });
@@ -94,19 +86,17 @@ public class ProfileFragment extends Fragment {
 
         });
 
-
+        /*--------------->update local and remote database with edited data<---------------*/
         binding.confirmButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 current_user.setName(binding.name.getText().toString());
                 current_user.setEmail(binding.email.getText().toString());
                 current_user.setPhone(binding.phone.getText().toString());
+                /*--------------->local<---------------*/
                 userViewModel.update(current_user);
-                Map<String, Object> user = new HashMap<>();
-                user.put("name", binding.name.getText().toString());
-                user.put("email", binding.email.getText().toString());
-                user.put("phone", binding.phone.getText().toString());
-                db.collection("new").document(FirebaseAuth.getInstance().getUid()).update(user);
+                /*--------------->remote<---------------*/
+                db.collection("new").document(FirebaseAuth.getInstance().getUid()).set(current_user);
 
 
             }

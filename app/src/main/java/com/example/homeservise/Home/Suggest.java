@@ -38,6 +38,7 @@ public class Suggest extends Fragment {
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
+        /*--------------->go to whatsapp to specific number/chat with text<---------------*/
         Intent sendIntent = new Intent();
         String  number= "+201150191031";
         startActivity(

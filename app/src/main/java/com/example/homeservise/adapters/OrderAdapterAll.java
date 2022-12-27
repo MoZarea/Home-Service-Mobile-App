@@ -18,34 +18,37 @@ import java.util.Date;
 import java.util.List;
 
 public class OrderAdapterAll extends RecyclerView.Adapter<OrderAdapterAll.Viewholderpop> {
+    /*-----> List to save incoming data <------*/
     List<Orders> order=new ArrayList<>();
+    /*---->listener for item click<---------*/
     OrderOneValueListener listeners;
+    /*--------------->constructor with listener as a parameter<---------------*/
     public OrderAdapterAll(OrderOneValueListener listeners) {
         this.listeners=listeners;
 
     }
 
 
-
+    /*---------------> on create method to inflate item layout<---------------*/
     @NonNull
     @Override
     public Viewholderpop onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v= LayoutInflater.from(parent.getContext()).inflate(R.layout.pending_order_item,parent,false);
         return new Viewholderpop(v);
     }
-
+    /*--------------->get position for item wanted in recycler view<---------------*/
     @Override
     public void onBindViewHolder(@NonNull Viewholderpop holder, int position) {
         Orders current_order =order.get(position);
         holder.bind(current_order);
 
     }
-
+    /*--------------->get count of data that will be show in RV<---------------*/
     @Override
     public int getItemCount() {
       return order.size();
     }
-
+    /*--------------->getting reference to views and bind data to it<---------------*/
     public class Viewholderpop extends RecyclerView.ViewHolder{
         TextView order_time, order_date, order_cost ,order_address ,order_number,today_date ,order_ser_title, order_category;
         Orders oders;
@@ -59,7 +62,7 @@ public class OrderAdapterAll extends RecyclerView.Adapter<OrderAdapterAll.Viewho
             today_date = itemView.findViewById(R.id.today_date);
             order_ser_title = itemView.findViewById(R.id.order_ser_title);
             order_category = itemView.findViewById(R.id.order_category);
-
+            /*--------------->send data to listener in activity<---------------*/
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -68,13 +71,14 @@ public class OrderAdapterAll extends RecyclerView.Adapter<OrderAdapterAll.Viewho
                 }
             });
         }
+        /*--------------->data binding<---------------*/
         void bind(Orders orders){
             this.oders =orders;
             order_time.setText(orders.getTime());
             order_date.setText(orders.getDate());
-            order_cost.setText(orders.getTotalCost()+" ج ");
-            order_address.setText(orders.getParticular_address());
-            order_number.setText("اوردر رقم: "+orders.getOrderID()+"");
+            order_cost.setText("التكلفة : "+orders.getTotalCost()+" ج ");
+            order_address.setText(" العنوان : "+orders.getParticular_address());
+            order_number.setText("اوردر رقم : "+orders.getOrderID()+"");
 
             Date d = new Date();
             CharSequence s  = DateFormat.format("MMMM d, yyyy ", d.getTime());
@@ -84,6 +88,7 @@ public class OrderAdapterAll extends RecyclerView.Adapter<OrderAdapterAll.Viewho
             order_category.setText("الخدمة: "+orders.getCat_title());
         }
     }
+    /*--------------->get updated data from database<---------------*/
     public void setData(List<Orders> orders) {
         this.order = orders;
         notifyDataSetChanged();

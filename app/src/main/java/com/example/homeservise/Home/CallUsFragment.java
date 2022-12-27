@@ -21,16 +21,20 @@ public class CallUsFragment extends Fragment {
         // Required empty public constructor
     }
 
+/*--------------->here we dont need to open layout,
+                  so we're applying the code on (on attach) method<---------------*/
 
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
+
+        /*--------------->intent to go to whatsapp at specific chat/number <---------------*/
         Intent sendIntent = new Intent();
                     String  number= "+201150191031";
                     startActivity(
                             new Intent(Intent.ACTION_VIEW,
                                     Uri.parse(
-                                            String.format("https://api.whatsapp.com/send?phone=%s&text=%s", number, "بطل صياح")
+                                            String.format("https://api.whatsapp.com/send?phone=%s&text=%s", number, " ")
                                     )
                             )
                     );
@@ -50,6 +54,7 @@ public class CallUsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        /*--------------->here we bind root to null asa we dont need root <---------------*/
         return inflater.inflate(R.layout.fragment_call_us, null, false);
     }
 }

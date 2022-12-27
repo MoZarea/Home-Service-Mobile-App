@@ -50,13 +50,14 @@ public class PickAddressFragment extends Fragment {
                              Bundle savedInstanceState) {
         binding = FragmentPickAddressBinding.inflate(inflater, container, false);
         servicesViewModel=new ViewModelProvider(requireActivity()).get(ServicesViewModel.class);
+        /*--------------->getting arguments<---------------*/
         args = PickAddressFragmentArgs.fromBundle(getArguments());
+        /*--------------->getting data from user<---------------*/
         binding.address1.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
             }
-
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 binding.Adderss1Layout.setError(null);
@@ -197,6 +198,7 @@ public class PickAddressFragment extends Fragment {
             }
         });
         binding.toFinalOrder.setOnClickListener(new View.OnClickListener() {
+            /*--------------->make sure all fields is not empty<---------------*/
             @Override
             public void onClick(View v) {
                 if(address1==null ||

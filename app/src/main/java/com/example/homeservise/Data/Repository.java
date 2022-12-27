@@ -21,27 +21,24 @@ import java.util.List;
 
 public class Repository {
 
-    //TODO اعمل باقي الجداول هنا
     private ServicesDao servicesDao;
     private CategoryDao categoryDao;
     private UserDao userDao;
     private OrdersDao ordersDao;
 
     public Repository(Application application) {
-        //عملت instance
+        /*--------------->getting reference to database<---------------*/
         RoomDatabases database = RoomDatabases.getDatabase(application);
-        //اكسس على الDAO
-        //TODO اعمل باقي الجداول هنا
+        /*--------------->getting reference to Dao's <---------------*/
         categoryDao = database.categoryDao();
         servicesDao = database.servicesDao();
         userDao = database.userDao();
         ordersDao = database.ordersDao();
 
     }
-
-    ///////////////////////////////////////////////////////////////////////
-    ///////////////////////category//////////////////////////
-    //////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////
+    /*--------------->category methods<---------------*/
+    ////////////////////////////////////////////////////
     public void insert(Category category) {
         RoomDatabases.databaseWriteExecutor.execute(() -> {
             categoryDao.insert(category);
@@ -77,8 +74,8 @@ public class Repository {
         return categoryDao.getAllCategory();
     }
 
-    ////////////////////////////////////////////////////////
-    ///////////////services//////////////////////
+    ////////////////////////////////////////////////////
+    /*--------------->Service methods<---------------*/
     ////////////////////////////////////////////////////
     public void insert(Services services) {
         RoomDatabases.databaseWriteExecutor.execute(() -> {
@@ -142,9 +139,9 @@ public class Repository {
     }
 
 
-    ////////////////////////////////////////////////////////////////////////
-    ////////////////////////////user Data//////////////////////////////
-    ////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////
+    /*--------------->User data methods<---------------*/
+    ////////////////////////////////////////////////////
 
     public void insert(UserData userData) {
         RoomDatabases.databaseWriteExecutor.execute(new Runnable() {
@@ -217,9 +214,9 @@ public class Repository {
 
     }
 
-    //////////////////////////////////////////////////////////////
-    //////////////////order//////////////////////////////////
-    //////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////
+    /*--------------->Order methods<---------------*/
+    ////////////////////////////////////////////////////
     public void insert(Orders oders) {
         RoomDatabases.databaseWriteExecutor.execute(() -> {
             ordersDao.insert(oders);

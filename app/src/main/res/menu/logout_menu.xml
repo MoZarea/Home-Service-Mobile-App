@@ -4,5 +4,5 @@
         android:id="@+id/logout"
 
         android:icon="@drawable/ic_baseline_person_24"
-        android:title="Log Out" />
+        android:title="تسجيل الخروج" />
 </menu>

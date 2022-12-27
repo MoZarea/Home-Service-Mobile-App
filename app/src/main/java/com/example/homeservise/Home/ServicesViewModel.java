@@ -16,6 +16,7 @@ import com.example.homeservise.Listener.Service.ServicesValueListener;
 import java.util.List;
 
 public class ServicesViewModel extends AndroidViewModel {
+    /*--------------->reference on repo<---------------*/
     private Repository reposotiry;
 
     public ServicesViewModel(@NonNull Application application) {
@@ -23,6 +24,7 @@ public class ServicesViewModel extends AndroidViewModel {
         reposotiry=new Repository(application);
 
     }
+    /*--------------->here all method needed to serve the UI <---------------*/
     void insert(Services services) {
         reposotiry.insert(services);
     }

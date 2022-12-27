@@ -41,9 +41,10 @@ public class PickDateTimeFragment extends Fragment {
                              Bundle savedInstanceState) {
         binding = FragmentPickDateTimeBinding.inflate(inflater, container, false);
         args = PickDateTimeFragmentArgs.fromBundle(getArguments());
-
+        /*--------------->get regerence<---------------*/
         datePicker = binding.calenderv;
         chipGroup = binding.chipGroup;
+        /*--------------->get data from user<---------------*/
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             datePicker.setOnDateChangedListener(new DatePicker.OnDateChangedListener() {
                 @Override
@@ -53,6 +54,7 @@ public class PickDateTimeFragment extends Fragment {
                 }
             });
         }
+        /*--------------->get time from user<---------------*/
         chipGroup.setOnCheckedStateChangeListener(new ChipGroup.OnCheckedStateChangeListener() {
             @Override
             public void onCheckedChanged(@NonNull ChipGroup group, @NonNull List<Integer> checkedIds) {
@@ -63,9 +65,11 @@ public class PickDateTimeFragment extends Fragment {
             }
         });
 
+
         binding.toAddress.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                /*--------------->make sure nothing null<---------------*/
                 if(date==null||time==null){
                     Toast.makeText(getActivity(), "التاريخ او الوقت  لم يتم تحديدهم بعد  ", Toast.LENGTH_SHORT).show();
                 }

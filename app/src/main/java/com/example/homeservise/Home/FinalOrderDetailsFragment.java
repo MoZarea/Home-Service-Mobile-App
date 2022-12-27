@@ -41,6 +41,7 @@ public class FinalOrderDetailsFragment extends Fragment {
         binding = FragmentFinalOrderDetailsBinding.inflate(inflater, container, false);
         servicesViewModel=new ViewModelProvider(requireActivity()).get(ServicesViewModel.class);
         String txt =args.getOrder().getSer_title().toString();
+        /*--------------->set data to layout<---------------*/
         binding.orderServiceTitle.setText(txt);
         binding.oderNumDetails.setText("اوردر رقم : "+args.getOrder().getOrderID());
         binding.orderFinalCost.setText("السعر : "+args.getOrder().getTotalCost());
@@ -49,10 +50,12 @@ public class FinalOrderDetailsFragment extends Fragment {
         binding.orderDate.setText(args.getOrder().getDate());
         binding.orderTime.setText(args.getOrder().getTime());
         binding.notes.setText(args.getOrder().getNotes());
+        /*--------------->btn to remove/cancel an order<---------------*/
         binding.cancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 servicesViewModel.delete(args.getOrder());
+                /*--------------->back to home fragment<---------------*/
                 Navigation.findNavController(v).navigate(R.id.homeFragment2);
             }
         });

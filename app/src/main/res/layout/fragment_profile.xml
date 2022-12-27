@@ -8,14 +8,12 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white"
-        android:paddingLeft="25dp"
-        android:paddingRight="25dp"
         tools:context=".Home.ProfileFragment">
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="75dp"
-            android:layout_height="75dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             android:layout_marginTop="20dp"
 
             android:background="#2196F3"
@@ -26,35 +24,35 @@
             tools:src="@tools:sample/avatars" />
 
         <TextView
-            android:id="@+id/email_under_pic"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:text="email@gmail.com"
-            android:textColor="@color/black"
-android:textSize="17sp"
-            app:layout_constraintEnd_toEndOf="@+id/name_under_pic"
-            app:layout_constraintStart_toStartOf="@+id/name_under_pic"
-            app:layout_constraintTop_toBottomOf="@+id/name_under_pic" />
+                android:id="@+id/email_under_pic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                android:text="email@gmail.com"
+                android:textColor="@color/black"
+                android:textSize="17sp"
+                app:layout_constraintEnd_toEndOf="@+id/name_under_pic"
+                app:layout_constraintStart_toStartOf="@+id/name_under_pic"
+                app:layout_constraintTop_toBottomOf="@+id/name_under_pic"/>
 
         <TextView
-            android:id="@+id/name_under_pic"
-            android:layout_width="wrap_content"
-            android:layout_height="26dp"
-            android:layout_marginTop="10dp"
-            android:text="name"
-            android:textSize="17sp"
-            android:textColor="@color/black"
-            app:layout_constraintEnd_toEndOf="@+id/imageView"
-            app:layout_constraintStart_toStartOf="@+id/imageView"
-            app:layout_constraintTop_toBottomOf="@+id/imageView" />
+                android:id="@+id/name_under_pic"
+                android:layout_width="wrap_content"
+                android:layout_height="26dp"
+                android:layout_marginTop="15dp"
+                android:text="name"
+                android:textSize="17sp"
+                android:textColor="@color/black"
+                app:layout_constraintEnd_toEndOf="@+id/imageView"
+                app:layout_constraintStart_toStartOf="@+id/imageView"
+                app:layout_constraintTop_toBottomOf="@+id/imageView"/>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/name_layout"
 
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="25dp"
             android:background="@color/white"
             android:hint="الاسم"
             android:textColorHint="@color/black"
@@ -67,9 +65,10 @@ android:textSize="17sp"
                 android:id="@+id/name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
                 android:background="#FFFFFF"
                 android:inputType="text"
+                android:textSize="20sp"
+                android:textStyle="bold"
                 android:textColor="@color/black" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -122,41 +121,16 @@ android:textSize="17sp"
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/address_layout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:background="@color/white"
-            android:hint="العنوان"
-            android:textColorHint="@color/black"
-            app:boxStrokeColor="@color/Primarycolor"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/email_layout">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/address"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-
-                android:background="#FFFFFF"
-                android:inputType="text"
-                android:textColor="@color/black" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
         <Button
-            android:id="@+id/confirm_button"
-            android:layout_width="match_parent"
-            android:layout_height="55dp"
-            android:layout_marginBottom="10dp"
-            android:text="تأكيد البيانات"
-            android:textSize="17sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+                android:id="@+id/confirm_button"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:text="تأكيد البيانات"
+                android:textColor="@color/black"
+                android:backgroundTint="@color/Primarycolor"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent" tools:layout_editor_absoluteX="25dp"/>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

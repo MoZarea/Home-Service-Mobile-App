@@ -7,6 +7,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -44,15 +45,25 @@ public class OffersFragment extends Fragment {
                              Bundle savedInstanceState) {
         binding=FragmentOffersBinding.inflate(inflater,container,false);
         servicesViewModel=new ViewModelProvider(requireActivity()).get(ServicesViewModel.class);
+
+        /*--------------->adapter binding<---------------*/
         recyclerViewOffers=binding.OfferRV;
         servicesAdapterAll=new ServicesAdapterAll(new OnServiceSelectedFromAll() {
             @Override
             public void onServiceSelected(Services services, View view) {
+                OffersFragmentDirections.ActionOffersFragment2ToDetailsFragment action = OffersFragmentDirections.actionOffersFragment2ToDetailsFragment(services);
+                Navigation.findNavController(view).navigate(action);
 
             }
         }, new FavorListener() {
             @Override
             public void onbuttonSubmit(Services current_service, boolean is_checked) {
+                if (is_checked) {
+                    current_service.setIs_favorite(1);
+                } else {
+                    current_service.setIs_favorite(0);
+                }
+                servicesViewModel.update(current_service);
 
             }
         });
@@ -65,6 +76,7 @@ public class OffersFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        /*--------------->update adapter with data<---------------*/
         servicesViewModel.getAllOffers().observe(requireActivity(), new Observer<List<Services>>() {
             @Override
             public void onChanged(List<Services> services) {

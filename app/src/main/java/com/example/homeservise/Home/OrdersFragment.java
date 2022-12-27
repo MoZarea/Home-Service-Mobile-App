@@ -49,41 +49,32 @@ BottomNavigationView bottomNavigationView;
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding=FragmentOrdersBinding.inflate(inflater,container,false);
-
         servicesViewModel=new ViewModelProvider(requireActivity()).get(ServicesViewModel.class);
+        /*--------------->adapter binding<---------------*/
         orderAdapterAll =new OrderAdapterAll(new OrderOneValueListener() {
             @Override
             public void onValueSubmit(Orders orderss, View itemView) {
                 OrdersFragmentDirections.ActionOrdersFragmentToFinalOrderDetailsFragment action=OrdersFragmentDirections.actionOrdersFragmentToFinalOrderDetailsFragment(orderss);
                 Navigation.findNavController(itemView).navigate(action);
-
-
-
             }
         });
         recyclerView_order=binding.recyclerViewOrders;
         recyclerView_order.setLayoutManager(new LinearLayoutManager(requireActivity(), LinearLayoutManager.VERTICAL, false));
         recyclerView_order.setHasFixedSize(true);
         recyclerView_order.setAdapter(orderAdapterAll);
-
-
         return binding.getRoot();
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
-
+        /*--------------->update adapter with data<---------------*/
         servicesViewModel.getAllOders().observe(requireActivity(), new Observer<List<Orders>>() {
             @Override
             public void onChanged(List<Orders> oders) {
                 orderAdapterAll.setData(oders);
             }
         });
-
-
-
     }
 
 

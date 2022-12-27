@@ -18,13 +18,16 @@ import java.util.List;
 
 
 public class CategoryAdapterAll extends RecyclerView.Adapter<CategoryAdapterAll.CATviewHolder> {
+    /*-----> List to save incoming data <------*/
     List<Category> cat =new ArrayList<>();
+    /*---->listener for item click<---------*/
     OnItemClickListeners listeners;
+    /*--------------->constructor with listener as a parameter<---------------*/
     public CategoryAdapterAll(OnItemClickListeners listeners) {
         this.listeners=listeners;
 
     }
-
+    /*---------------> on create method to inflate item layout<---------------*/
     @NonNull
     @Override
     public CATviewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -32,7 +35,7 @@ public class CategoryAdapterAll extends RecyclerView.Adapter<CategoryAdapterAll.
 
         return new CATviewHolder(v);
     }
-
+    /*--------------->get position for item wanted in recycler view<---------------*/
     @Override
     public void onBindViewHolder(@NonNull CATviewHolder holder, int position) {
             Category currentCat =cat.get(position);
@@ -43,12 +46,12 @@ public class CategoryAdapterAll extends RecyclerView.Adapter<CategoryAdapterAll.
 
     }
 
-
+    /*--------------->get count of data that will be show in RV<---------------*/
     @Override
     public int getItemCount() {
        return cat.size();
     }
-
+    /*--------------->getting reference to views and bind data to it<---------------*/
     public class CATviewHolder extends RecyclerView.ViewHolder{
         TextView tv_name;
         ImageView iv_image;
@@ -59,7 +62,7 @@ public class CategoryAdapterAll extends RecyclerView.Adapter<CategoryAdapterAll.
             super(itemView);
             tv_name = itemView.findViewById(R.id.catTitle);
             iv_image=itemView.findViewById(R.id.catPic);
-
+            /*--------------->send data to listener in activity<---------------*/
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -68,13 +71,14 @@ public class CategoryAdapterAll extends RecyclerView.Adapter<CategoryAdapterAll.
             });
 
         }
+        /*--------------->data binding<---------------*/
         void bind(Category category){
             this.category=category;
             tv_name.setText(category.getTitel());
             iv_image.setImageResource(category.getPic());
         }
     }
-
+    /*--------------->get updated data from database<---------------*/
     public void setData(List<Category> cat) {
         this.cat = cat;
         notifyDataSetChanged();

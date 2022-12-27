@@ -39,8 +39,7 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         //inflate layout xml
         binding = DataBindingUtil.setContentView(this, R.layout.login_screen);
-////////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////////////
+
         //listener of reset password
         binding.reset.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,8 +48,7 @@ public class Login extends AppCompatActivity {
                 //TODO..................
             }
         });
-////////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////////////
+
         //listener of signUp
         binding.SignUp.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,8 +58,7 @@ public class Login extends AppCompatActivity {
 
             }
         });
-////////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////////////
+
         //listener of login
         binding.button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,14 +67,12 @@ public class Login extends AppCompatActivity {
             }
         });
     }
-///////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////
     private void login_user() {
-        String email = binding.phonee.getText().toString();
-        String pass = binding.pass.getText().toString();
-
+        String email = binding.phonee.getText().toString().trim();
+        String pass = binding.pass.getText().toString().trim();
+        /*--------------->make sure fields not empty<---------------*/
         if (!email.isEmpty() && !pass.isEmpty()) {
-
+            /*--------------->login with email and password already exist<---------------*/
             FirebaseAuth.getInstance().signInWithEmailAndPassword(email, pass)
                     .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
@@ -85,20 +80,20 @@ public class Login extends AppCompatActivity {
                             if (task.isSuccessful()) {
                                 FirebaseUser firebaseUser = task.getResult().getUser();
 
-                                Toast.makeText(Login.this, "login done", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(Login.this, "تم تسجيل الدخول بنجاح", Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(getBaseContext(), MainActivity.class);
 
                                 startActivity(intent);
                                 finish();
                             } else {
-                                Toast.makeText(Login.this, "login faild", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(Login.this, "كلمة مرور او بريد الكتروني خاطئ", Toast.LENGTH_SHORT).show();
 
                             }
                         }
                     });
         }
         else{
-            Toast.makeText(this, "الحقول فارغة", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, " احد الحقول فارغة", Toast.LENGTH_SHORT).show();
         }
 
     }

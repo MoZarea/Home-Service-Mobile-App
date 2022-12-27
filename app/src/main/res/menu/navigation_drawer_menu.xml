@@ -1,34 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item
-        android:id="@+id/homeFragment2"
-        android:icon="@drawable/ic_baseline_home_24"
-        android:title="Home" />
+
     <item
         android:id="@+id/allCategoriesFragment"
         android:icon="@drawable/ic_baseline_category_24"
-        android:title="Categories" />
+        android:title="الفئات" />
     <item
         android:id="@+id/preferedFragment2"
         android:icon="@drawable/ic_baseline_favorite_24"
-        android:title="Prefered" />
+        android:title="المفضلة" />
     <item
         android:id="@+id/ordersFragment"
         android:icon="@drawable/ic_baseline_person_24"
-        android:title="My Order" />
+        android:title="طلباتى" />
 
     <item
         android:id="@+id/profileFragment"
         android:icon="@drawable/ic_baseline_person_24"
-        android:title="Profile" />
+        android:title="الملف الشخصي" />
     <item
         android:id="@+id/callUsFragment"
         android:icon="@drawable/ic_baseline_person_24"
-        android:title="Call Us" />
+        android:title="اتصل بنا" />
     <item
         android:id="@+id/suggest"
         android:icon="@drawable/ic_baseline_person_24"
-        android:title="Suggestion" />
+        android:title="الشكاوى والمقتراحات " />
 
 
 

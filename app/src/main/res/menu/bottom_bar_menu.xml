@@ -3,18 +3,18 @@
     <item
         android:id="@+id/homeFragment2"
         android:icon="@drawable/ic_baseline_home_24"
-        android:title="Home" />
+        android:title="الرئيسية" />
     <item
         android:id="@+id/allCategoriesFragment"
         android:icon="@drawable/ic_baseline_category_24"
-        android:title="Categories" />
+        android:title="الفئات" />
     <item
         android:id="@+id/preferedFragment2"
         android:icon="@drawable/ic_baseline_favorite_24"
-        android:title="Prefered" />
+        android:title="المفضلة" />
     <item
         android:id="@+id/offersFragment2"
         android:icon="@drawable/ic_baseline_local_offer_24"
-        android:title="Offers" />
+        android:title="العروض" />
 
 </menu>

@@ -13,8 +13,8 @@
             android:id="@+id/ser_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:background="@color/gray2"
+            android:layout_marginTop="0dp"
+            android:background="@color/Primarycolor"
             android:gravity="right"
             android:padding="15dp"
             android:text="عنوان الخدمة"
@@ -29,7 +29,7 @@
             android:id="@+id/scrollView4"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:background="@color/white"
+            android:background="@color/gray2"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
             app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
@@ -43,6 +43,7 @@
                 android:orientation="vertical">
 
                 <TextView
+                        android:layout_marginTop="10dp"
                     android:id="@+id/textView3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -328,7 +329,7 @@
             android:id="@+id/linearLayout3"
             android:layout_width="match_parent"
             android:layout_height="55dp"
-            android:background="@color/primaryDarkColor22"
+            android:background="#FFF9C4"
             android:gravity="center_vertical"
             android:weightSum="3"
             app:layout_constraintBottom_toBottomOf="parent">
@@ -339,10 +340,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="25dp"
                 android:layout_weight="1"
-                android:backgroundTint="@color/secondaryColor22"
+                android:backgroundTint="@color/Primarycolor"
                 android:text="تأكيد"
                 android:textSize="20sp"
                 android:textStyle="bold"
+                android:textColor="@color/black"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
 
@@ -355,7 +357,7 @@
                 android:gravity="right|center_vertical"
                 android:padding="10dp"
                 android:text="280 جنية"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:textSize="20sp"
 
                 android:textStyle="bold" />

@@ -37,7 +37,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="@string/Login"
+            android:text="تسجيل الدخول"
+            android:textColor="@color/black"
             android:textSize="35sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -86,42 +87,44 @@
             app:layout_constraintGuide_percent="0.62" />
 
 
-
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/phone"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginRight="10dp"
-            android:hint="Phone"
-            app:boxStrokeColor="@color/Primarycolor"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/login">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/phonee"
-
+                android:id="@+id/phone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textEmailAddress"  />
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginRight="10dp"
+                app:hintTextColor="@color/black"
+                android:hint="البريد الالكتروني"
+                app:boxStrokeColor="@color/Primarycolor"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/login"
+                app:hintTextAppearance="@android:style/Theme.Black" app:helperTextEnabled="false">
+
+            <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/phonee"
+                    android:textColor="@color/black"
+                    android:background="@color/white"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textEmailAddress" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/password"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="30dp"
             android:layout_marginBottom="35dp"
             android:layout_marginRight="10dp"
-            android:hint="@string/Password"
+            android:hint="كلمة السر"
             app:boxStrokeColor="@color/Primarycolor"
             app:endIconMode="password_toggle"
+            app:endIconTint="@color/black"
+            app:hintTextColor="@color/black"
             app:helperTextEnabled="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -131,12 +134,17 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/pass"
+                android:textColorHint="@color/black"
+
+                android:background="@color/white"
+                android:textColor="@color/black"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
                 tools:ignore="SpeakableTextPresentCheck" />
         </com.google.android.material.textfield.TextInputLayout>
 <LinearLayout
+        android:visibility="invisible"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     app:layout_constraintBottom_toTopOf="@+id/button"
@@ -154,7 +162,7 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:gravity="center"
-        android:text="@string/ForgetyourPassword"
+        android:text="هل نسيت كلمة المرور ؟ "
         android:textColor="@color/black"
         android:textSize="16dp"
         android:textStyle="bold"
@@ -185,7 +193,7 @@
             android:layout_marginTop="35dp"
             android:layout_marginRight="10dp"
             android:backgroundTint="@color/Primarycolor"
-            android:text="@string/Login"
+            android:text="تسجيل دخول"
             android:textColor="@color/black"
             android:textSize="20dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -197,7 +205,8 @@
             android:id="@+id/txtOr"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/OR"
+            android:text="أو"
+            android:textColor="@color/black"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -255,14 +264,7 @@
             app:layout_constraintTop_toBottomOf="@id/guideline6"
             app:layout_constraintVertical_bias="0.0">
 
-            <TextView
-                android:id="@+id/textView2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:textSize="16sp"
-                android:layout_marginRight="10dp"
-                android:text="@string/Donthaveanyaccount" />
+
 
             <TextView
                 android:id="@+id/SignUp"
@@ -270,10 +272,20 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
-                android:text="@string/SignUp"
+                android:text="انشاء حساب جديد "
                 android:textColor="@color/Primarycolor"
 
                 />
+
+            <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:textSize="16sp"
+                    android:textColor="@color/black"
+                    android:layout_marginRight="10dp"
+                    android:text="هل لديك بريد بالفعل؟  " />
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 

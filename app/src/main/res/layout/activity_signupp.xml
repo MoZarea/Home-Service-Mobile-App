@@ -21,7 +21,7 @@
             android:id="@+id/sgin_in"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Sign up"
+            android:text="انشاء حساب جديد"
             android:textColor="@color/black"
             android:textSize="35sp"
             app:layout_constraintTop_toTopOf="@+id/consSign"
@@ -38,7 +38,7 @@
             android:layout_marginTop="20dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:hint="Name"
+            android:hint="الاسم"
             android:textColorHint="@color/black"
             app:boxStrokeColor="@color/Primarycolor"
             app:layout_constraintEnd_toEndOf="parent"
@@ -63,7 +63,7 @@
             android:layout_marginBottom="20dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:hint="Phone"
+            android:hint="رقم الهاتف"
             android:textColorHint="@color/black"
             app:boxStrokeColor="@color/Primarycolor"
             app:layout_constraintEnd_toEndOf="parent"
@@ -86,7 +86,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:hint="@string/Email"
+            android:hint="البريد الالكتروني"
             android:textColorHint="@color/black"
             app:boxStrokeColor="@color/Primarycolor"
             app:layout_constraintEnd_toEndOf="parent"
@@ -111,7 +111,7 @@
             app:boxStrokeColor="@color/Primarycolor"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:hint="@string/Password"
+            android:hint="كلمة المرور"
             app:endIconMode="password_toggle"
             app:helperTextEnabled="true"
             app:layout_constraintEnd_toEndOf="parent"
@@ -137,7 +137,7 @@
             app:boxStrokeColor="@color/Primarycolor"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:hint="Confirm Password"
+            android:hint="تأكيد كلمة المرور"
             app:endIconMode="password_toggle"
             app:helperTextEnabled="true"
             app:layout_constraintEnd_toEndOf="parent"
@@ -158,7 +158,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/Primarycolor"
-            android:text="Sign up"
+            android:text="انشاء حساب"
             android:textColor="@color/black"
             android:textSize="20sp"
             android:layout_marginTop="40dp"
@@ -182,13 +182,14 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/btn_signup">
 
+
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/bt_to_login"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:layout_marginRight="10dp"
-                android:text="Already have an account?"
+                android:layout_height="match_parent"
+                android:layout_gravity="left"
+                android:text="تسجيل دخول "
+                android:textColor="@color/Primarycolor"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -196,17 +197,18 @@
                 app:layout_constraintTop_toBottomOf="@id/btn_signup" />
 
             <TextView
-                android:id="@+id/bt_to_login"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_gravity="left"
-                android:text="@string/Login"
-                android:textColor="@color/Primarycolor"
-                android:textSize="16sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/btn_signup" />
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_marginRight="10dp"
+                    android:text="لديك حساب بالفعل ؟ "
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/btn_signup" />
+
         </LinearLayout>
 
         <ProgressBar

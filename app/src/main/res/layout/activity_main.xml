@@ -14,7 +14,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/primaryDarkColor22"
+            android:background="@color/white"
             tools:context=".Home.MainActivity">
 
 
@@ -24,8 +24,8 @@
                 android:name="androidx.navigation.fragment.NavHostFragment"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
+                android:layout_marginLeft="0dp"
+                android:layout_marginRight="0dp"
                 android:text="Hello World!"
                 app:defaultNavHost="true"
                 app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
@@ -38,11 +38,11 @@
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
                 app:menu="@menu/logout_menu"
-                app:titleTextColor="@color/white"
-                app:subtitleTextColor="@color/white"
+                app:titleTextColor="@color/black"
+                app:subtitleTextColor="@color/black"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/primaryDarkColor22"
+                android:background="@color/Primarycolor"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -51,8 +51,8 @@
                 android:id="@+id/bottom_navigation"
                 android:layout_width="match_parent"
                 style="@style/Widget.MaterialComponents.BottomNavigationView.Colorededited"
-                android:background="@color/primaryDarkColor22"
-                android:layout_height="70dp"
+                android:background="@color/Primarycolor"
+                android:layout_height="wrap_content"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

@@ -12,7 +12,7 @@ import com.example.homeservise.Data.Repository;
 import java.util.List;
 
 public class CategoryViewModel extends AndroidViewModel {
-    //مؤشر على الREPO
+    /*--------------->reference on repo<---------------*/
     private Repository reposotiry;
 
 
@@ -23,7 +23,7 @@ public class CategoryViewModel extends AndroidViewModel {
     }
 
 
-
+    /*--------------->here all method needed to serve the UI <---------------*/
     void insert(Category category) {
         reposotiry.insert(category);
     }

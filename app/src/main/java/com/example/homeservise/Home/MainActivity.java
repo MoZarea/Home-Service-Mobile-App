@@ -49,56 +49,31 @@ public class MainActivity extends AppCompatActivity {
             startActivity(new Intent(getBaseContext(), Login.class));
         }
 
-        //inflate xml layout
+        /*--------------->inflate layout<---------------*/
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         setContentView(binding.getRoot());
-
-
-       Intent intent=getIntent();
-       String id = intent.getStringExtra("id");
-        if(id!=null) {
-            SharedPreferences sharedPreferences = getSharedPreferences("my_id",MODE_PRIVATE);
-            SharedPreferences.Editor myEdit = sharedPreferences.edit();
-            myEdit.putString("id", id);
-            myEdit.commit();
-        }
         userViewModel = new ViewModelProvider(this).get(UserViewModel.class);
-
         servicesViewModel = new ViewModelProvider(this).get(ServicesViewModel.class);
-//        userViewModel = new ViewModelProvider(this).get(UserViewModel.class);
         userViewModel = new ViewModelProvider((ViewModelStoreOwner) this, (ViewModelProvider.Factory) new ViewModelProvider.AndroidViewModelFactory(getApplication())).get(UserViewModel.class);
-
-
-//        categoryViewModel.
         categoryViewModel = new ViewModelProvider(this).get(CategoryViewModel.class);
 
-
-        //bind views from layout
+        /*--------------->getting reference to layout views<---------------*/
         toolbar = binding.toolbar;
-
-
         navigationView = binding.navigationDrawer;
         bottomNavigationView = binding.bottomNavigation;
         drawerLayout = binding.drawerLayout;
         navController = Navigation.findNavController(this, R.id.nav_host_fragment_container);
 
 
-        //for bottom nav bar
+        /*--------------->bind bottom navigation with navigation_graph<---------------*/
         NavigationUI.setupWithNavController(bottomNavigationView, navController);
 
-        // for nav drawer
+        /*--------------->bind navigation drawer with navigation graph<---------------*/
         appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph())
                 .setDrawerLayout(drawerLayout).build();
         NavigationUI.setupWithNavController(navigationView, navController);
         NavigationUI.setupWithNavController(toolbar, navController, appBarConfiguration);
-
-
-        //TODO  COMPLETE BOTTOM BAR ICON
-        //TODO COMPLETE MENU ITEM
-        //TODO COMPLETE UI OF SCREENS
-        //TODO NAVIGATION BETWEEN SCREENS
-        //TODO VIEW MODEL
-
+        /*--------------->to invisibile bottom navigation from specefic fragment <---------------*/
         navController.addOnDestinationChangedListener(new NavController.OnDestinationChangedListener() {
             @Override
             public void onDestinationChanged(@NonNull NavController navController, @NonNull NavDestination navDestination, @Nullable Bundle bundle) {
@@ -106,7 +81,10 @@ public class MainActivity extends AppCompatActivity {
                         navDestination.getId() == R.id.pickDateTimeFragment ||
                         navDestination.getId() == R.id.pickAddressFragment ||
                         navDestination.getId() == R.id.profileFragment ||
-                        navDestination.getId() == R.id.featureFragment
+                        navDestination.getId() == R.id.featureFragment||
+                        navDestination.getId() == R.id.allServicesFragment
+
+
                 ) {
                     bottomNavigationView.setVisibility(View.GONE);
 
@@ -116,6 +94,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+        /*--------------->for logout menu<---------------*/
         toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
@@ -124,7 +103,6 @@ public class MainActivity extends AppCompatActivity {
                     FirebaseAuth.getInstance().signOut();
                     startActivity(new Intent(getBaseContext(), Login.class));
                     servicesViewModel.deleteAllOrders();
-
                 }
                 return false;
             }

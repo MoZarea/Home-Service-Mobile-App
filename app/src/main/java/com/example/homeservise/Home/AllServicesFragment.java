@@ -26,13 +26,10 @@ import java.util.List;
 
 public class AllServicesFragment extends Fragment {
     RecyclerView recyclerViewAllSer;
-    CategoryViewModel categoryViewModel;
     ServicesViewModel servicesViewModel;
     ServicesAdapterAll servicesAdapterAll;
     AllServicesFragmentArgs args;
     FragmentAllServicesBinding binding;
-    private String mParam2;
-//    Services services;
 
     public AllServicesFragment() {
     }
@@ -47,23 +44,19 @@ public class AllServicesFragment extends Fragment {
                              Bundle savedInstanceState) {
         binding = FragmentAllServicesBinding.inflate(inflater, container, false);
 
-        //Recieve argument
+        /*--------------->getting arguments<---------------*/
         args = AllServicesFragmentArgs.fromBundle(getArguments());
 
-        //////////////////////////////////////////////////////////
-        /////// All Services Adapter with Recycler View /////////
-        ////////////////////////////////////////////////////////
+        /*--------------->adapter binding<---------------*/
         recyclerViewAllSer = binding.recyclerViewAllServices;
         servicesAdapterAll = new ServicesAdapterAll(new OnServiceSelectedFromAll() {
             @Override
             public void onServiceSelected(Services services, View view) {
 
-
                 /*
                  * Navigation to Details Fragment and show data
                  * based on service selected and pass data required to destination
                  */
-                //TODO with feature is disable ... you should implement function for that
                 AllServicesFragmentDirections.ActionAllServicesFragmentToDetailsFragment action = AllServicesFragmentDirections.actionAllServicesFragmentToDetailsFragment(services);
                 Navigation.findNavController(view).navigate(action);
             }
@@ -91,7 +84,8 @@ public class AllServicesFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         String cat = args.getCAT();
-        //set adapter with values
+        /*--------------->set adapter with values<---------------*/
+        /*--------------->99 is value refer to (show all data)  <---------------*/
         if(cat=="99"){
             servicesViewModel.getAllServices().observe(requireActivity(), new Observer<List<Services>>() {
                 @Override

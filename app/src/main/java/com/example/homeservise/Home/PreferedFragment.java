@@ -7,6 +7,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -44,12 +45,13 @@ public class PreferedFragment extends Fragment  {
                              Bundle savedInstanceState) {
         binding = FragmentPreferedBinding.inflate(inflater, container, false);
         servicesViewModel = new ViewModelProvider(requireActivity()).get(ServicesViewModel.class);
+        /*--------------->adapter binding<---------------*/
         recyclerViewFavor = binding.FavoriteRV;
         servicesAdapterAll = new ServicesAdapterAll(new OnServiceSelectedFromAll() {
             @Override
             public void onServiceSelected(Services services, View view) {
-
-
+                PreferedFragmentDirections.ActionPreferedFragment2ToDetailsFragment action = PreferedFragmentDirections.actionPreferedFragment2ToDetailsFragment(services);
+                Navigation.findNavController(view).navigate(action);
 
             }
         }, new FavorListener() {
@@ -75,6 +77,7 @@ public class PreferedFragment extends Fragment  {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        /*--------------->update adapter with data<---------------*/
         servicesViewModel.getAllFavorite().observe(requireActivity(), new Observer<List<Services>>() {
             @Override
             public void onChanged(List<Services> services) {

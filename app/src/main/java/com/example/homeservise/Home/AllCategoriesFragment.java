@@ -42,9 +42,8 @@ public class AllCategoriesFragment extends Fragment {
                              Bundle savedInstanceState) {
         binding = FragmentAllCategoriesBinding.inflate(inflater, container, false);
 
-        //////////////////////////////////////////////////////////
-        /////// All Services Adapter with Recycler View /////////
-        ////////////////////////////////////////////////////////
+
+        /*--------------->adapter binding <---------------*/
         recyclerViewAllCat =binding.recyclerViewAllCat;
         categoryAdapterAll=new CategoryAdapterAll(new OnItemClickListeners() {
             @Override
@@ -67,6 +66,7 @@ public class AllCategoriesFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        /*--------------->updata adapter with new data<---------------*/
         categoryViewModel.getAllCategory().observe(requireActivity(), new Observer<List<Category>>() {
             @Override
             public void onChanged(List<Category> categories) {

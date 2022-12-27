@@ -52,12 +52,17 @@ public class FeatureFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
        binding=FragmentFeatureBinding.inflate(inflater,container,false);
+        servicesViewModel=new ViewModelProvider(requireActivity()).get(ServicesViewModel.class);
+        /*--------------->getting arguments<---------------*/
        args=FeatureFragmentArgs.fromBundle(getArguments());
-
-       servicesViewModel=new ViewModelProvider(requireActivity()).get(ServicesViewModel.class);
+       /*--------------->reference to choice group<---------------*/
        num_of_pieces_CG =binding.room;
+       /*--------------->reference to choice group<---------------*/
        extra_CG=binding.extras;
+       /*--------------->reference to Radio group<---------------*/
        radioGroup=binding.radioGroup;
+
+       /*--------------->getting meters the user selected<---------------*/
        num_of_pieces_CG.setOnCheckedStateChangeListener(new ChipGroup.OnCheckedStateChangeListener() {
            @Override
            public void onCheckedChanged(@NonNull ChipGroup group, @NonNull List<Integer> checkedIds) {
@@ -83,8 +88,7 @@ public class FeatureFragment extends Fragment {
            }
        });
 
-
-
+        /*--------------->getting the value of closed flat or not<---------------*/
 
        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
            @Override
@@ -98,7 +102,8 @@ public class FeatureFragment extends Fragment {
                }
            }
        });
-       binding.spehialCleaning.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        /*--------------->getting the value of need more work or not<---------------*/
+        binding.spehialCleaning.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
            @Override
            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                if(isChecked){
@@ -110,14 +115,7 @@ public class FeatureFragment extends Fragment {
                }
            }
        });
-       extra_CG.setOnCheckedStateChangeListener(new ChipGroup.OnCheckedStateChangeListener() {
-           @Override
-           public void onCheckedChanged(@NonNull ChipGroup group, @NonNull List<Integer> checkedIds) {
-
-
-           }
-       });
-
+        /*--------------->getting number of addition options<---------------*/
        extra_CG.setOnCheckedStateChangeListener(new ChipGroup.OnCheckedStateChangeListener() {
            @Override
            public void onCheckedChanged(@NonNull ChipGroup group, @NonNull List<Integer> checkedIds) {
@@ -133,8 +131,9 @@ public class FeatureFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        binding.totalCost.setText((args.getService().getSer_Price()+total_room_cost+ total_extra_cost)+"");
-
+        /*--------------->update the value of total cost according to user selections <---------------*/
+        binding.totalCost.setText((args.getService().getSer_Price()+total_room_cost+ total_extra_cost)+" جنية ");
+        /*--------------->when confirm btn clicked new order should created<---------------*/
         binding.confirmBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -143,12 +142,13 @@ public class FeatureFragment extends Fragment {
                 args.getOrder().setServiceID(args.getService().getId());
                 args.getOrder().setSer_title(args.getService().getSertitle());
                 args.getOrder().setCat_title(args.getService().getSerCat());
+                /*--------------->navigate to next fragment<---------------*/
                 FeatureFragmentDirections.ActionFeatureFragmentToPickDateTimeFragment action =FeatureFragmentDirections.actionFeatureFragmentToPickDateTimeFragment(args.getService(),args.getOrder());
                 Navigation.findNavController(v).navigate(action);
             }
         });
     }
-
+    /*--------------->method to collect options added to String <---------------*/
     public String get_text_for_noteString(){
         String room_text ="عدد القطع حتي : ";
 
