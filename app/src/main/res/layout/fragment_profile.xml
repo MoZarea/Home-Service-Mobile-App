@@ -8,57 +8,66 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/white"
-            tools:context=".Home.ProfileFragment">
+            tools:context=".Home.ProfileFragment"
+            android:layout_marginStart="16dp"
 
-        <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:layout_marginTop="20dp"
+            android:layout_marginEnd="16dp">
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constr"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
 
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/profile"
-        />
+                app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-                android:id="@+id/email_under_pic"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="7dp"
-                android:text="email@gmail.com"
-                android:textColor="@color/black"
-                android:textSize="17sp"
-                app:layout_constraintEnd_toEndOf="@+id/name_under_pic"
-                app:layout_constraintStart_toStartOf="@+id/name_under_pic"
-                app:layout_constraintTop_toBottomOf="@+id/name_under_pic"/>
+            <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
+
+                    app:srcCompat="@drawable/proff"
+                    app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+            <TextView
+                    android:id="@+id/email_under_pic"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="email@gmail.com"
+                    android:textColor="@color/black"
+                    android:textSize="17sp"
+                    app:layout_constraintEnd_toEndOf="@+id/name_under_pic"
+                    app:layout_constraintStart_toStartOf="@+id/name_under_pic"
+                    app:layout_constraintTop_toBottomOf="@+id/name_under_pic"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
 
         <TextView
                 android:id="@+id/name_under_pic"
                 android:layout_width="wrap_content"
                 android:layout_height="26dp"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="20dp"
                 android:text="name"
                 android:textSize="17sp"
                 android:textColor="@color/black"
                 app:layout_constraintEnd_toEndOf="@+id/imageView"
                 app:layout_constraintStart_toStartOf="@+id/imageView"
                 app:layout_constraintTop_toBottomOf="@+id/imageView"/>
-
+        </androidx.constraintlayout.widget.ConstraintLayout>
         <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/name_layout"
-
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
+                android:layout_marginTop="30dp"
                 android:background="@color/white"
                 android:hint="الاسم"
                 android:textColorHint="@color/black"
-                app:boxStrokeColor="@color/Primarycolor"
+                app:boxStrokeColor="@color/gray"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/email_under_pic">
+                app:layout_constraintTop_toBottomOf="@+id/constr">
 
             <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/name"
@@ -67,8 +76,8 @@
                     android:background="#FFFFFF"
                     android:inputType="text"
                     android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:textColor="@color/black"/>
+                    android:textColor="@color/black"
+                    android:layout_margin="8dp"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -80,7 +89,7 @@
                 android:background="@color/white"
                 android:hint="رقم الهاتف"
                 android:textColorHint="@color/black"
-                app:boxStrokeColor="@color/Primarycolor"
+                app:boxStrokeColor="@color/gray"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/name_layout">
@@ -89,10 +98,11 @@
                     android:id="@+id/phone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="20sp"
+                    android:layout_margin="8dp"
+
                     android:background="#FFFFFF"
                     android:inputType="phone"
-                    android:textColor="@color/black"/>
+                    android:textColor="@color/black" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -104,19 +114,20 @@
                 android:background="@color/white"
                 android:hint="البريد الالكتروني"
                 android:textColorHint="@color/black"
-                app:boxStrokeColor="@color/Primarycolor"
+                app:boxStrokeColor="@color/gray"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/phone_layout">
 
             <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/email"
+                    android:layout_margin="8dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="20sp"
+
                     android:background="#FFFFFF"
                     android:inputType="textEmailAddress"
-                    android:textColor="@color/black"/>
+                    android:textColor="@color/black" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -127,10 +138,10 @@
                 android:text="تأكيد البيانات"
                 android:textColor="@color/black"
                 android:backgroundTint="@color/Primarycolor"
-                android:textSize="20sp"
+                android:textSize="17sp"
                 android:textStyle="bold"
+                android:layout_margin="16dp"
                 app:layout_constraintBottom_toBottomOf="parent" tools:layout_editor_absoluteX="25dp"/>
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</layout>
+    </androidx.constraintlayout.widget.ConstraintLayout></layout>

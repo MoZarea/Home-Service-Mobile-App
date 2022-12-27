@@ -13,7 +13,10 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
+import androidx.lifecycle.ViewModelProvider;
+import com.example.homeservise.Data.User.UserData;
 import com.example.homeservise.Home.MainActivity;
+import com.example.homeservise.Home.UserViewModel;
 import com.example.homeservise.R;
 import com.example.homeservise.databinding.LoginScreenBinding;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -25,6 +28,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
@@ -33,6 +37,7 @@ import java.util.Map;
 public class Login extends AppCompatActivity {
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     LoginScreenBinding binding;
+    UserViewModel userViewModel;
 
 
     @Override
@@ -40,6 +45,7 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         //inflate layout xml
         binding = DataBindingUtil.setContentView(this, R.layout.login_screen);
+        userViewModel = new ViewModelProvider(this).get(UserViewModel.class);
 
         //listener of reset password
         binding.reset.setOnClickListener(new View.OnClickListener() {
@@ -84,7 +90,16 @@ public class Login extends AppCompatActivity {
                                 Toast.makeText(Login.this, "تم تسجيل الدخول بنجاح", Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(getBaseContext(), MainActivity.class);
 
+
                                 startActivity(intent);
+
+                                db.collection("new").document(FirebaseAuth.getInstance().getUid()).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                                    @Override
+                                    public void onSuccess(DocumentSnapshot documentSnapshot) {
+                                      UserData  current_user=documentSnapshot.toObject(UserData.class);
+                                      userViewModel.insert(current_user);
+                                    }
+                                });
                                 finish();
                             } else {
                                 Toast.makeText(Login.this, "كلمة مرور او بريد الكتروني خاطئ", Toast.LENGTH_SHORT).show();
