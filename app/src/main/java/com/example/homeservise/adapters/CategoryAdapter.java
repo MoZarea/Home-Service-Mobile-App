@@ -18,7 +18,7 @@ import java.util.List;
 
 
 public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.CATviewHolder> {
-    /*-----> List to save incoming data <------*/
+    /*----> List to save incoming data <------*/
     List<Category> cat =new ArrayList<>();
     /*---->listener for item click<---------*/
     OnItemClickListeners listeners;
